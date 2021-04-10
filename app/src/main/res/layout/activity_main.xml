@@ -68,8 +68,6 @@
                 android:onClick="launchHomeScreenActivity"/>
         </FrameLayout>
 
-
-
-        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
