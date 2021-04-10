@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "#37D90A"
+    android:background = "#c7ea46"
     tools:context=".HomeScreen">
 
     <LinearLayout
@@ -38,7 +38,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="5dp"
-                android:background="#37D90A"
+                android:background="#c7ea46"
                 android:onClick="launchSecondActivity"
                 app:srcCompat="@drawable/add_entry_icon" />
 
@@ -47,7 +47,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="80dp"
-                android:background="#37D90A"
+                android:background="#c7ea46"
                 app:srcCompat="@drawable/share_icon" />
 
             <ImageButton
@@ -56,7 +56,7 @@
                 android:layout_height="80dp"
                 android:layout_marginLeft="80dp"
                 android:layout_marginRight="5dp"
-                android:background="#37D90A"
+                android:background="#c7ea46"
                 android:src="@drawable/history_icon" />
 
         </LinearLayout>
