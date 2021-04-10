@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Mood Tracker</string>
+    <string name="introduction">The idea is simple: every day, you record your
+    mood within this application</string>
+    <string name="mood_question">How is your mood today?</string>
+    <string name="mood_question_exp">The mood is set for an entire day, but at any
+    point during the day, you can reopen the app to change your mood. At midnight
+    the mood at that point in time will be saved as the mood of the day, and you can start
+    setting the mood for a new day</string>
+</resources>

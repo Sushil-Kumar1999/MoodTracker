@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "#37D90A"
+    tools:context=".HomeScreen">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="570dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/home_screen_emoji" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/addEntryButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="5dp"
+                android:background="#37D90A"
+                android:onClick="launchSecondActivity"
+                app:srcCompat="@drawable/add_entry_icon" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="80dp"
+                android:background="#37D90A"
+                app:srcCompat="@drawable/share_icon" />
+
+            <ImageButton
+                android:id="@+id/btn_mood_history"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="5dp"
+                android:background="#37D90A"
+                android:src="@drawable/history_icon" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
