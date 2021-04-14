@@ -1,66 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "#c7ea46"
+    android:orientation="vertical"
+    android:background="#b5e892"
     tools:context=".HomeScreen">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="570dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="50dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_smile_1" />
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="570dp">
+        <ImageButton
+            android:id="@+id/button_add_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="#b5e892"
+            android:onClick="launchSecondActivity"
+            android:src="@drawable/ic_note_add" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingHorizontal="50dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/home_screen_emoji" />
-        </FrameLayout>
+        <ImageButton
+            android:id="@+id/button_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#b5e892"
+            android:src="@drawable/ic_share" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/addEntryButton"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="5dp"
-                android:background="#c7ea46"
-                android:onClick="launchSecondActivity"
-                app:srcCompat="@drawable/add_entry_icon" />
-
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="80dp"
-                android:background="#c7ea46"
-                app:srcCompat="@drawable/share_icon" />
-
-            <ImageButton
-                android:id="@+id/btn_mood_history"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="80dp"
-                android:layout_marginRight="5dp"
-                android:background="#c7ea46"
-                android:src="@drawable/history_icon" />
-
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/button_mood_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="#b5e892"
+            android:src="@drawable/ic_history" />
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
