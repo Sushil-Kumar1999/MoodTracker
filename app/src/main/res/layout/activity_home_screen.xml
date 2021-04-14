@@ -10,13 +10,13 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="570dp">
+        android:layout_height="580dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="50dp"
+            android:paddingHorizontal="90dp"
             android:src="@drawable/ic_smile_1"
             android:contentDescription="@string/smiley_emoji" />
     </FrameLayout>
