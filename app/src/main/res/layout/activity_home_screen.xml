@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingHorizontal="50dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_smile_1" />
+            android:src="@drawable/ic_smile_1"
+            android:contentDescription="@string/smiley_emoji" />
     </FrameLayout>
 
     <LinearLayout
@@ -34,7 +34,8 @@
             android:layout_weight="0"
             android:background="#b5e892"
             android:onClick="launchSecondActivity"
-            android:src="@drawable/ic_note_add" />
+            android:src="@drawable/ic_note_add"
+            android:contentDescription="@string/add_note" />
 
         <ImageButton
             android:id="@+id/button_share"
@@ -42,7 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#b5e892"
-            android:src="@drawable/ic_share" />
+            android:src="@drawable/ic_share"
+            android:contentDescription="@string/share" />
 
         <ImageButton
             android:id="@+id/button_mood_history"
@@ -50,7 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:background="#b5e892"
-            android:src="@drawable/ic_history" />
+            android:src="@drawable/ic_history"
+            android:contentDescription="@string/mood_history" />
 
     </LinearLayout>
 

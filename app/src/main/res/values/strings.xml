@@ -7,4 +7,8 @@
     point during the day, you can reopen the app to change your mood. At midnight
     the mood at that point in time will be saved as the mood of the day, and you can start
     setting the mood for a new day</string>
+    <string name="smiley_emoji">Smiley emoji</string>
+    <string name="add_note">Add Note</string>
+    <string name="share">Share</string>
+    <string name="mood_history">Mood history</string>
 </resources>
