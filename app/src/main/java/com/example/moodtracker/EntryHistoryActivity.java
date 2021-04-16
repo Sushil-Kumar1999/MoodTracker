@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
+
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -26,6 +28,9 @@ public class EntryHistoryActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view_entries);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+
+        // Removes blinks
+        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
 
         EntryAdapter entryAdapter = new EntryAdapter();
         recyclerView.setAdapter(entryAdapter);

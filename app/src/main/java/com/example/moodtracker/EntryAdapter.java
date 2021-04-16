@@ -5,18 +5,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder> {
 
     private List<Entry> entries = new ArrayList();
+    private Map<Integer, Boolean> entryStates;
 
     @NonNull
     @Override
@@ -29,6 +37,7 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
     @Override
     public void onBindViewHolder(@NonNull EntryHolder holder, int position) {
         Entry currentEntry = entries.get(position);
+        boolean isExpanded = this.entryStates.get(currentEntry.getId());
         Mood currentMood = currentEntry.getMood();
 
         holder.textViewMood.setText(currentMood.toString());
@@ -41,6 +50,16 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
 
         holder.imageViewMood.setImageResource(getEmojiResourceId(currentMood));
         holder.relativeLayout.setBackgroundColor(getColor(currentMood));
+
+        holder.containerEntryDetails.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+        holder.textViewSleepDuration.setText(currentEntry.getSleepDuration() + " hours");
+
+        holder.itemView.setOnClickListener(v -> {
+            int entryId = currentEntry.getId();
+            boolean expanded = this.entryStates.get(entryId);
+            this.entryStates.put(entryId, !expanded);
+            notifyItemChanged(position);
+        });
     }
 
     @Override
@@ -50,6 +69,7 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
 
     public void setEntries(List<Entry> entries) {
         this.entries = entries;
+        this.entryStates = getEntryStates(entries);
         notifyDataSetChanged();
     }
 
@@ -62,6 +82,8 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
         private TextView textViewDateTime;
         private ImageView imageViewMood;
         private RelativeLayout relativeLayout;
+        private RelativeLayout containerEntryDetails;
+        private TextView textViewSleepDuration;
 
         public EntryHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +91,8 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
             textViewMood = itemView.findViewById(R.id.text_view_mood);
             textViewDateTime = itemView.findViewById(R.id.text_view_dateTime);
             relativeLayout = itemView.findViewById(R.id.relative_layout_entry_item);
+            containerEntryDetails = itemView.findViewById(R.id.container_entry_details);
+            textViewSleepDuration = itemView.findViewById(R.id.text_view_sleep_duration);
         }
     }
 
@@ -112,5 +136,13 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
         }
 
         return colorInt;
+    }
+
+    private Map<Integer, Boolean> getEntryStates(List<Entry> entries) {
+        Map<Integer, Boolean> map = new HashMap<>();
+        for (Entry entry : entries) {
+            map.put(entry.getId(), false);
+        }
+        return map;
     }
 }
