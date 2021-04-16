@@ -71,7 +71,52 @@
                 android:layout_toRightOf="@+id/text_view_sleep"
                 android:text="5.5 hours" />
 
-        </RelativeLayout>
+            <TextView
+                 android:id="@+id/text_view_had_breakfast"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@+id/text_view_sleep"
+                 android:text="Had Breakfast: " />
+
+            <TextView
+                android:id="@+id/had_breakfast_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_sleep"
+                android:layout_toRightOf="@id/text_view_had_breakfast"
+                android:text="No"/>
+
+            <TextView
+                 android:id="@+id/text_view_had_lunch"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@+id/text_view_had_breakfast"
+                 android:text="Had Lunch: " />
+
+            <TextView
+                android:id="@+id/had_lunch_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_had_breakfast"
+                android:layout_toRightOf="@id/text_view_had_lunch"
+                android:text="Yes"/>
+
+            <TextView
+                 android:id="@+id/text_view_had_dinner"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@+id/text_view_had_lunch"
+                 android:text="Had Dinner: " />
+
+            <TextView
+                android:id="@+id/had_dinner_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_view_had_lunch"
+                android:layout_toRightOf="@id/text_view_had_dinner"
+                android:text="Yes"/>
+        
+            </RelativeLayout>
 
     </RelativeLayout>
 

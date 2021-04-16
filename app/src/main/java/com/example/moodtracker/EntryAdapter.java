@@ -37,22 +37,7 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
     @Override
     public void onBindViewHolder(@NonNull EntryHolder holder, int position) {
         Entry currentEntry = entries.get(position);
-        boolean isExpanded = this.entryStates.get(currentEntry.getId());
-        Mood currentMood = currentEntry.getMood();
-
-        holder.textViewMood.setText(currentMood.toString());
-
-        Date currentDate = currentEntry.getDate();
-        String dateString = DateFormat
-                .getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT)
-                .format(currentDate);
-        holder.textViewDateTime.setText(dateString);
-
-        holder.imageViewMood.setImageResource(getEmojiResourceId(currentMood));
-        holder.relativeLayout.setBackgroundColor(getColor(currentMood));
-
-        holder.containerEntryDetails.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
-        holder.textViewSleepDuration.setText(currentEntry.getSleepDuration() + " hours");
+        bindData(holder, currentEntry);
 
         holder.itemView.setOnClickListener(v -> {
             int entryId = currentEntry.getId();
@@ -84,6 +69,9 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
         private RelativeLayout relativeLayout;
         private RelativeLayout containerEntryDetails;
         private TextView textViewSleepDuration;
+        private TextView textViewHadBreakfastValue;
+        private TextView textViewHadLunchValue;
+        private TextView textViewHadDinnerValue;
 
         public EntryHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,6 +81,9 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
             relativeLayout = itemView.findViewById(R.id.relative_layout_entry_item);
             containerEntryDetails = itemView.findViewById(R.id.container_entry_details);
             textViewSleepDuration = itemView.findViewById(R.id.text_view_sleep_duration);
+            textViewHadBreakfastValue = itemView.findViewById(R.id.had_breakfast_value);
+            textViewHadLunchValue = itemView.findViewById(R.id.had_lunch_value);
+            textViewHadDinnerValue = itemView.findViewById(R.id.had_dinner_value);
         }
     }
 
@@ -144,5 +135,27 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
             map.put(entry.getId(), false);
         }
         return map;
+    }
+
+    private void bindData(EntryHolder holder, Entry currentEntry) {
+        boolean isExpanded = this.entryStates.get(currentEntry.getId());
+        Mood currentMood = currentEntry.getMood();
+
+        holder.textViewMood.setText(currentMood.toString());
+
+        Date currentDate = currentEntry.getDate();
+        String dateString = DateFormat
+                .getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT)
+                .format(currentDate);
+        holder.textViewDateTime.setText(dateString);
+
+        holder.imageViewMood.setImageResource(getEmojiResourceId(currentMood));
+        holder.relativeLayout.setBackgroundColor(getColor(currentMood));
+
+        holder.containerEntryDetails.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+        holder.textViewSleepDuration.setText(String.format("%s hours", currentEntry.getSleepDuration()));
+        holder.textViewHadBreakfastValue.setText(currentEntry.isHadBreakfast() ? "Yes" : "No");
+        holder.textViewHadLunchValue.setText(currentEntry.isHadLunch() ? "Yes" : "No");
+        holder.textViewHadDinnerValue.setText(currentEntry.isHadDinner() ? "Yes" : "No");
     }
 }
