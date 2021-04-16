@@ -53,6 +53,10 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
         notifyDataSetChanged();
     }
 
+    public Entry getEntryAt(int position) {
+        return this.entries.get(position);
+    }
+
     class EntryHolder extends RecyclerView.ViewHolder {
         private TextView textViewMood;
         private TextView textViewDateTime;

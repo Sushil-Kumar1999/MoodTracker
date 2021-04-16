@@ -22,6 +22,10 @@ public class EntryViewModel extends AndroidViewModel {
         entryRepository.insert(entry);
     }
 
+    public void delete(Entry entry) {
+        entryRepository.delete(entry);
+    }
+
     public LiveData<List<Entry>> getAllEntries() {
         return allEntries;
     }
