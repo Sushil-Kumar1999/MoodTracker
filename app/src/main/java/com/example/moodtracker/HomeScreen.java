@@ -18,4 +18,9 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
     }
+
+    public void launchEntryHistoryActivity(View view) {
+        Intent intent = new Intent(this, EntryHistoryActivity.class);
+        startActivity(intent);
+    }
 }

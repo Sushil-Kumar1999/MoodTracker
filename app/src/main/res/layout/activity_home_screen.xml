@@ -53,7 +53,8 @@
             android:layout_weight="0"
             android:background="#b5e892"
             android:src="@drawable/ic_history"
-            android:contentDescription="@string/mood_history" />
+            android:contentDescription="@string/mood_history"
+            android:onClick="launchEntryHistoryActivity"/>
 
     </LinearLayout>
 
