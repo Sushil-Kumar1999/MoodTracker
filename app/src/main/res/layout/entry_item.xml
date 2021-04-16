@@ -56,11 +56,20 @@
                 android:layout_height="1dp"
                 android:layout_marginVertical="10dp" />
 
+            <ImageView
+                android:id="@+id/image_view_alarm"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_alarm"
+                android:layout_below="@+id/item_divider" />
+
             <TextView
                 android:id="@+id/text_view_sleep"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/item_divider"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/image_view_alarm"
                 android:text="Sleep duration: " />
 
             <TextView
@@ -71,25 +80,43 @@
                 android:layout_toRightOf="@+id/text_view_sleep"
                 android:text="5.5 hours" />
 
+            <ImageView
+                android:id="@+id/image_view_breakfast"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_breakfast"
+                android:layout_below="@+id/image_view_alarm" />
+
             <TextView
-                 android:id="@+id/text_view_had_breakfast"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_below="@+id/text_view_sleep"
-                 android:text="Had Breakfast: " />
+                android:id="@+id/text_view_had_breakfast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image_view_alarm"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/image_view_breakfast"
+                android:text="Had Breakfast: " />
 
             <TextView
                 android:id="@+id/had_breakfast_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/text_view_sleep"
+                android:layout_below="@+id/image_view_alarm"
                 android:layout_toRightOf="@id/text_view_had_breakfast"
                 android:text="No"/>
+
+            <ImageView
+                 android:id="@+id/image_view_lunch"
+                 android:layout_width="18dp"
+                 android:layout_height="18dp"
+                 android:layout_below="@id/image_view_breakfast"
+                 android:src="@drawable/ic_lunch" />
 
             <TextView
                  android:id="@+id/text_view_had_lunch"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
+                 android:layout_marginLeft="5dp"
+                 android:layout_toRightOf="@id/image_view_lunch"
                  android:layout_below="@+id/text_view_had_breakfast"
                  android:text="Had Lunch: " />
 
@@ -101,12 +128,22 @@
                 android:layout_toRightOf="@id/text_view_had_lunch"
                 android:text="Yes"/>
 
+            <ImageView
+                android:id="@+id/image_view_dinner"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_dinner"
+                android:layout_below="@+id/image_view_lunch"
+                android:layout_marginTop="2dp"/>
+
             <TextView
-                 android:id="@+id/text_view_had_dinner"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_below="@+id/text_view_had_lunch"
-                 android:text="Had Dinner: " />
+                android:id="@+id/text_view_had_dinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/image_view_dinner"
+                android:layout_below="@+id/text_view_had_lunch"
+                android:text="Had Dinner: " />
 
             <TextView
                 android:id="@+id/had_dinner_value"
