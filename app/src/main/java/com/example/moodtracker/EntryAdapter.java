@@ -10,6 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -21,10 +23,27 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder> {
+public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
 
-    private List<Entry> entries = new ArrayList();
-    private Map<Integer, Boolean> entryStates;
+    public EntryAdapter() {
+        super(DIFF_CALLBACK);
+    }
+
+    private static final DiffUtil.ItemCallback<Entry> DIFF_CALLBACK = new DiffUtil.ItemCallback<Entry>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Entry oldItem, @NonNull Entry newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Entry oldItem, @NonNull Entry newItem) {
+            return oldItem.getSleepDuration() == newItem.getSleepDuration() &&
+                    oldItem.getMood().equals(newItem.getMood()) &&
+                    oldItem.isHadBreakfast() == newItem.isHadBreakfast() &&
+                    oldItem.isHadLunch() == newItem.isHadLunch() &&
+                    oldItem.isHadDinner() == newItem.isHadDinner();
+        }
+    };
 
     @NonNull
     @Override
@@ -36,30 +55,12 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
 
     @Override
     public void onBindViewHolder(@NonNull EntryHolder holder, int position) {
-        Entry currentEntry = entries.get(position);
+        Entry currentEntry = getItem(position);
         bindData(holder, currentEntry);
-
-        holder.itemView.setOnClickListener(v -> {
-            int entryId = currentEntry.getId();
-            boolean expanded = this.entryStates.get(entryId);
-            this.entryStates.put(entryId, !expanded);
-            notifyItemChanged(position);
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return entries.size();
-    }
-
-    public void setEntries(List<Entry> entries) {
-        this.entries = entries;
-        this.entryStates = getEntryStates(entries);
-        notifyDataSetChanged();
     }
 
     public Entry getEntryAt(int position) {
-        return this.entries.get(position);
+        return getItem(position);
     }
 
     class EntryHolder extends RecyclerView.ViewHolder {
@@ -72,6 +73,7 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
         private TextView textViewHadBreakfastValue;
         private TextView textViewHadLunchValue;
         private TextView textViewHadDinnerValue;
+        private boolean isExpanded;
 
         public EntryHolder(@NonNull View itemView) {
             super(itemView);
@@ -84,6 +86,14 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
             textViewHadBreakfastValue = itemView.findViewById(R.id.had_breakfast_value);
             textViewHadLunchValue = itemView.findViewById(R.id.had_lunch_value);
             textViewHadDinnerValue = itemView.findViewById(R.id.had_dinner_value);
+
+            itemView.setOnClickListener(v -> {
+                int position = getBindingAdapterPosition();
+                if (position != RecyclerView.NO_POSITION) {
+                    isExpanded = !isExpanded;
+                    notifyItemChanged(position);
+                }
+            });
         }
     }
 
@@ -129,18 +139,8 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
         return colorInt;
     }
 
-    private Map<Integer, Boolean> getEntryStates(List<Entry> entries) {
-        Map<Integer, Boolean> map = new HashMap<>();
-        for (Entry entry : entries) {
-            map.put(entry.getId(), false);
-        }
-        return map;
-    }
-
     private void bindData(EntryHolder holder, Entry currentEntry) {
-        boolean isExpanded = this.entryStates.get(currentEntry.getId());
         Mood currentMood = currentEntry.getMood();
-
         holder.textViewMood.setText(currentMood.toString());
 
         Date currentDate = currentEntry.getDate();
@@ -152,7 +152,7 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryHolder>
         holder.imageViewMood.setImageResource(getEmojiResourceId(currentMood));
         holder.relativeLayout.setBackgroundColor(getColor(currentMood));
 
-        holder.containerEntryDetails.setVisibility(isExpanded ? View.VISIBLE : View.GONE);
+        holder.containerEntryDetails.setVisibility(holder.isExpanded ? View.VISIBLE : View.GONE);
         holder.textViewSleepDuration.setText(String.format("%s hours", currentEntry.getSleepDuration()));
         holder.textViewHadBreakfastValue.setText(currentEntry.isHadBreakfast() ? "Yes" : "No");
         holder.textViewHadLunchValue.setText(currentEntry.isHadLunch() ? "Yes" : "No");

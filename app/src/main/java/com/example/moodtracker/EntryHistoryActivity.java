@@ -29,15 +29,12 @@ public class EntryHistoryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        // Removes blinks
-        ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
-
         EntryAdapter entryAdapter = new EntryAdapter();
         recyclerView.setAdapter(entryAdapter);
 
         entryViewModel = new ViewModelProvider(this).get(EntryViewModel.class);
         entryViewModel.getAllEntries().observe(this, entries -> {
-            entryAdapter.setEntries(entries);
+            entryAdapter.submitList(entries);
         });
 
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
