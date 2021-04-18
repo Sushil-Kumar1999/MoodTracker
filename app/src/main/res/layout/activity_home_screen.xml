@@ -28,33 +28,45 @@
         android:paddingHorizontal="10dp">
 
         <ImageButton
-            android:id="@+id/button_add_note"
+            android:id="@+id/button_add_entry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:background="#b5e892"
             android:onClick="launchSecondActivity"
-            android:src="@drawable/ic_note_add"
+            android:src="@drawable/ic_add_circle"
             android:contentDescription="@string/add_note" />
+
+        <ImageButton
+            android:id="@+id/button_entry_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#b5e892"
+            android:src="@drawable/ic_history"
+            android:contentDescription="@string/mood_history"
+            android:paddingLeft="20dp"
+            android:onClick="launchEntryHistoryActivity"/>
+
+        <ImageButton
+            android:id="@+id/button_statistics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="5dp"
+            android:background="#b5e892"
+            android:src="@drawable/ic_stats"
+            android:contentDescription="View statistics" />
 
         <ImageButton
             android:id="@+id/button_share"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0"
+            android:layout_marginLeft="20dp"
             android:background="#b5e892"
             android:src="@drawable/ic_share"
             android:contentDescription="@string/share" />
-
-        <ImageButton
-            android:id="@+id/button_mood_history"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:background="#b5e892"
-            android:src="@drawable/ic_history"
-            android:contentDescription="@string/mood_history"
-            android:onClick="launchEntryHistoryActivity"/>
 
     </LinearLayout>
 
