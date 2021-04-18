@@ -11,6 +11,9 @@
     <string name="add_note">Add Note</string>
     <string name="share">Share</string>
     <string name="mood_history">Mood history</string>
-    <string name="appetite_question">How is your appetite today?</string>
+    <string name="appetite_question">How was your appetite?</string>
     <string name="sleep_question">How long did you sleep?</string>
+    <string name="breakfast_question">Did you have breakfast?</string>
+    <string name="lunch_question">Did you have lunch?</string>
+    <string name="dinner_question">Did you have dinner?</string>
 </resources>

@@ -24,15 +24,6 @@ public class Entry {
 
     public Entry() {}
 
-    public Entry(Mood mood, float sleepDuration, boolean hadBreakfast, boolean hadLunch, boolean hadDinner) {
-        this.mood = mood;
-        this.sleepDuration = sleepDuration;
-        this.hadBreakfast = hadBreakfast;
-        this.hadLunch = hadLunch;
-        this.hadDinner = hadDinner;
-        this.date = Calendar.getInstance().getTime();
-    }
-
     @Ignore()
     public Entry(Mood mood, float sleepDuration, boolean hadBreakfast, boolean hadLunch, boolean hadDinner, Date date) {
         this.mood = mood;

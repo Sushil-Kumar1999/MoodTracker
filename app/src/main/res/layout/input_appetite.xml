@@ -17,9 +17,32 @@
         android:text="@string/appetite_question" />
 
 
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_breakfast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/breakfast_question" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_lunch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/lunch_question" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch_dinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/dinner_question" />
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="bottom">
 
         <Button
             android:id="@+id/button_next_appetite"
