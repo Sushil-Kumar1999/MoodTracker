@@ -22,6 +22,8 @@ public class Entry {
 
     private Date date;
 
+    public Entry() {}
+
     public Entry(Mood mood, float sleepDuration, boolean hadBreakfast, boolean hadLunch, boolean hadDinner) {
         this.mood = mood;
         this.sleepDuration = sleepDuration;
@@ -39,10 +41,6 @@ public class Entry {
         this.hadLunch = hadLunch;
         this.hadDinner = hadDinner;
         this.date = date;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getId() {
@@ -71,6 +69,30 @@ public class Entry {
 
     public Date getDate() {
         return date;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setMood(Mood mood) {
+        this.mood = mood;
+    }
+
+    public void setSleepDuration(float sleepDuration) {
+        this.sleepDuration = sleepDuration;
+    }
+
+    public void setHadBreakfast(boolean hadBreakfast) {
+        this.hadBreakfast = hadBreakfast;
+    }
+
+    public void setHadLunch(boolean hadLunch) {
+        this.hadLunch = hadLunch;
+    }
+
+    public void setHadDinner(boolean hadDinner) {
+        this.hadDinner = hadDinner;
     }
 
     public void setDate(Date date) {

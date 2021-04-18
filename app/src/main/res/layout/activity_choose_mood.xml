@@ -1,127 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
+    android:id="@+id/choose_mood_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/white"
     tools:context="com.example.moodtracker.ChooseMoodActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="305dp"
+            android:layout_marginTop="10dp"
+            android:text="Skip"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/white"
+            android:layout_marginLeft="305dp" />
+    </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="251dp">
+        android:layout_height="140dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="305dp"
-                android:layout_marginTop="10dp"
-                android:text="Skip"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"
-                android:textColor="@color/black"
-                app:backgroundTint="@color/white" />
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
+        <ImageButton
+            android:id="@+id/button_angry_mood"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:backgroundTint="@color/angry_button_background_color"
+            android:src="@drawable/angry_face"
+            android:onClick="angryMoodSelected"/>
 
-            <ImageButton
-                android:id="@+id/imageButton6"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:background="#DC143C"
-                android:src="@drawable/angry_face" />
-
-            <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:background="#A9A9A9"
-                android:src="@drawable/very_sad_face" />
-
-            <ImageButton
-                android:id="@+id/imageButton5"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:background="#6495ED"
-                android:src="@drawable/neutral_face" />
-
-            <ImageButton
-                android:id="@+id/imageButton7"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                android:background="#98FB98"
-                android:src="@drawable/happy_face" />
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:background="#FFFF00"
-                android:src="@drawable/very_happy_face" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            android:textSize="30dp"
-            android:textStyle="bold"
+        <ImageButton
+            android:id="@+id/button_sad_mood"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:text="@string/mood_question" />
+            android:backgroundTint="@color/sad_button_background_color"
+            android:src="@drawable/very_sad_face"
+            android:onClick="sadMoodSelected"/>
 
-        <TextView
-            android:id="@+id/Explanation"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:paddingTop="8dp"
-            android:paddingHorizontal="25dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textSize="20dp"
-            android:text="@string/mood_question_exp"
-            android:gravity="center_horizontal"
-            android:textAlignment="gravity"/>
+        <ImageButton
+            android:id="@+id/button_meh_mood"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/meh_button_background_color"
+            android:src="@drawable/neutral_face"
+            android:onClick="mehMoodSelected"/>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp">
+        <ImageButton
+            android:id="@+id/button_happy_mood"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/happy_button_background_color"
+            android:src="@drawable/happy_face"
+            android:onClick="happyMoodSelected"/>
 
-            <Button
-                android:id="@+id/Next"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="305dp"
-                android:layout_marginBottom="10dp"
-                android:text="Next"
-                android:textAppearance="@style/TextAppearance.AppCompat.Button"/>
-        </FrameLayout>
+        <ImageButton
+            android:id="@+id/button_cheerful_mood"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/cheerful_button_background_color"
+            android:src="@drawable/very_happy_face"
+            android:onClick="cheerfulMoodSelected"/>
 
     </LinearLayout>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:text="@string/mood_question" />
+
+    <TextView
+        android:id="@+id/Explanation"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:paddingTop="8dp"
+        android:paddingHorizontal="25dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="20sp"
+        android:text="@string/mood_question_exp"
+        android:gravity="center_horizontal"
+        android:textAlignment="gravity"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="305dp"
+            android:layout_marginLeft="305dp"
+            android:layout_marginBottom="10dp"
+            android:text="Next"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:enabled="false"
+            android:onClick="gotToAppetiteView"/>
+    </FrameLayout>
+
+</LinearLayout>
