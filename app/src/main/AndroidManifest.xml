@@ -12,7 +12,7 @@
 
         <activity
             android:name=".EntryHistoryActivity"
-            android:parentActivityName=".HomeScreen" />
+            android:parentActivityName=".DashboardActivity" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name=".HomeScreen"
+            android:name=".DashboardActivity"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -31,11 +31,11 @@
         </activity>
 
         <activity
-            android:name=".SecondActivity"
-            android:parentActivityName=".HomeScreen">
+            android:name=".ChooseMoodActivity"
+            android:parentActivityName=".DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.moodtracker.HomeScreen" />
+                android:value="com.example.moodtracker.DashboardActivity" />
         </activity>
 
     </application>
