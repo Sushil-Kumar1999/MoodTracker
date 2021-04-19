@@ -3,15 +3,13 @@ package com.example.moodtracker;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.ViewModelProvider;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
-
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.Calendar;
 
 public class ChooseMoodActivity extends AppCompatActivity {
@@ -25,6 +23,8 @@ public class ChooseMoodActivity extends AppCompatActivity {
     private SwitchCompat breakfastSwitch;
     private SwitchCompat lunchSwitch;
     private SwitchCompat dinnerSwitch;
+
+    private EditText editTextTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,32 +93,32 @@ public class ChooseMoodActivity extends AppCompatActivity {
 
         breakfastSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             newEntry.setHadBreakfast(isChecked);
-            logEntry();
         });
 
         lunchSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             newEntry.setHadLunch(isChecked);
-            logEntry();
         });
 
         dinnerSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             newEntry.setHadDinner(isChecked);
-            logEntry();
         });
     }
 
     private void initializeSleepView() {
-        logEntry();
+        editTextTime = findViewById(R.id.editText_sleep_duration);
     }
 
     public void addEntry(View view) {
-        newEntry.setSleepDuration(4.5f);
+        float sleepDuration = Float.parseFloat(editTextTime.getText().toString());
+        newEntry.setSleepDuration(sleepDuration);
         newEntry.setDate(Calendar.getInstance().getTime());
         entryViewModel.insert(newEntry);
 
-        //Snackbar.make(findViewById(R.id.choose_mood_view).getRootView(), "New entry created", Snackbar.LENGTH_LONG).show();
-    }
+        //Snackbar.make(findViewById(R.id.choose_sleep_view), "New entry created", Snackbar.LENGTH_LONG).show();
 
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
+    }
 
     private void logEntry() {
         Log.d("Mood", "mood " + newEntry.getMood().toString());
@@ -126,4 +126,5 @@ public class ChooseMoodActivity extends AppCompatActivity {
         Log.d("Appetite", "lunch " + newEntry.isHadLunch());
         Log.d("Appetite", "dinner " + newEntry.isHadDinner());
     }
+
 }
