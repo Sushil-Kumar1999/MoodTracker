@@ -41,7 +41,8 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
                     oldItem.getMood().equals(newItem.getMood()) &&
                     oldItem.isHadBreakfast() == newItem.isHadBreakfast() &&
                     oldItem.isHadLunch() == newItem.isHadLunch() &&
-                    oldItem.isHadDinner() == newItem.isHadDinner();
+                    oldItem.isHadDinner() == newItem.isHadDinner() &&
+                    oldItem.getNote().equals(newItem.getNote());
         }
     };
 
@@ -160,6 +161,14 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
         holder.textViewHadLunchValue.setText(currentEntry.isHadLunch() ? "Yes" : "No");
         holder.textViewHadDinnerValue.setText(currentEntry.isHadDinner() ? "Yes" : "No");
 
-        holder.textViewNoteValue.setText(currentEntry.getNote().isEmpty() ? "No note available" : currentEntry.getNote());
+        if (currentEntry.getNote() == null) {
+            holder.textViewNoteValue.setText("No note available");
+        }
+        else if (currentEntry.getNote().isEmpty()) {
+            holder.textViewNoteValue.setText("No note available");
+        }
+        else {
+            holder.textViewNoteValue.setText(currentEntry.getNote());
+        }
     }
 }
