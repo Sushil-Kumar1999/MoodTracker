@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import java.util.Calendar;
 
 public class CreateEntryActivity extends AppCompatActivity {
@@ -121,9 +120,8 @@ public class CreateEntryActivity extends AppCompatActivity {
         newEntry.setDate(Calendar.getInstance().getTime());
         entryViewModel.insert(newEntry);
 
-        //Snackbar.make(findViewById(R.id.choose_sleep_view), "New entry created", Snackbar.LENGTH_LONG).show();
-
         Intent intent = new Intent(this, DashboardActivity.class);
+        intent.putExtra("New entry created", true);
         startActivity(intent);
     }
 

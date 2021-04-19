@@ -1,10 +1,10 @@
 package com.example.moodtracker;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import com.google.android.material.snackbar.Snackbar;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -14,6 +14,11 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         setTitle("Dashboard");
+
+        boolean newEntryAdded = getIntent().getBooleanExtra("New entry created", false);
+        if (newEntryAdded) {
+            Snackbar.make(findViewById(R.id.dashboard_view), "New entry created", Snackbar.LENGTH_SHORT).show();
+        }
     }
 
     public void launchCreateEntryActivity(View view) {
