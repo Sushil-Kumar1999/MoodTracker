@@ -8,14 +8,22 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
+import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.GregorianCalendar;
 
-@Database(entities = {Entry.class}, version = 1)
+@Database(entities = {Entry.class}, version = 2)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase instance;
+
+    private static Migration migration_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE entry ADD COLUMN note TEXT DEFAULT ''");
+        }
+    };
 
     public abstract EntryDao entryDao();
 
@@ -23,6 +31,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     AppDatabase.class, "app_database")
+                    .addMigrations(migration_1_2)
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
                     .build();
@@ -49,9 +58,15 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
 
-            entryDao.insert(new Entry(Mood.Happy, 7, true, true, true, new GregorianCalendar(2021, 02, 11, 10, 23, 34).getTime()));
-            entryDao.insert(new Entry(Mood.Happy, 7, true, true, true, new GregorianCalendar(2021, 03, 12, 8, 56, 2).getTime()));
-            entryDao.insert(new Entry(Mood.Happy, 7, true, true, true, new GregorianCalendar(2021, 04, 13, 14, 17, 36).getTime()));
+            entryDao.insert(new Entry(Mood.Happy, 7, true, true, true,
+                    new GregorianCalendar(2021, 02, 11, 10, 23, 34).getTime(),
+                    "I am happy"));
+            entryDao.insert(new Entry(Mood.Happy, 7, true, true, true,
+                    new GregorianCalendar(2021, 03, 12, 8, 56, 2).getTime(),
+                    "I am happy"));
+            entryDao.insert(new Entry(Mood.Happy, 7, true, true, true,
+                    new GregorianCalendar(2021, 04, 13, 14, 17, 36).getTime(),
+                    "I am happy"));
             return null;
         }
     }

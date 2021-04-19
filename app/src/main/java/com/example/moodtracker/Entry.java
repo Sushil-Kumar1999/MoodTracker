@@ -1,5 +1,6 @@
 package com.example.moodtracker;
 
+import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -20,17 +21,20 @@ public class Entry {
     private boolean hadLunch;
     private boolean hadDinner;
 
+    private String note;
     private Date date;
 
     public Entry() {}
 
     @Ignore()
-    public Entry(Mood mood, float sleepDuration, boolean hadBreakfast, boolean hadLunch, boolean hadDinner, Date date) {
+    public Entry(Mood mood, float sleepDuration, boolean hadBreakfast, boolean hadLunch,
+                 boolean hadDinner, Date date, String note) {
         this.mood = mood;
         this.sleepDuration = sleepDuration;
         this.hadBreakfast = hadBreakfast;
         this.hadLunch = hadLunch;
         this.hadDinner = hadDinner;
+        this.note = note;
         this.date = date;
     }
 
@@ -62,6 +66,10 @@ public class Entry {
         return date;
     }
 
+    public String getNote() {
+        return note;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -88,5 +96,9 @@ public class Entry {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

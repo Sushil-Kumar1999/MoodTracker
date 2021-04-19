@@ -73,6 +73,7 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
         private TextView textViewHadBreakfastValue;
         private TextView textViewHadLunchValue;
         private TextView textViewHadDinnerValue;
+        private TextView textViewNoteValue;
         private boolean isExpanded;
 
         public EntryHolder(@NonNull View itemView) {
@@ -86,6 +87,7 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
             textViewHadBreakfastValue = itemView.findViewById(R.id.had_breakfast_value);
             textViewHadLunchValue = itemView.findViewById(R.id.had_lunch_value);
             textViewHadDinnerValue = itemView.findViewById(R.id.had_dinner_value);
+            textViewNoteValue = itemView.findViewById(R.id.text_view_note_value);
 
             itemView.setOnClickListener(v -> {
                 int position = getBindingAdapterPosition();
@@ -157,5 +159,7 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
         holder.textViewHadBreakfastValue.setText(currentEntry.isHadBreakfast() ? "Yes" : "No");
         holder.textViewHadLunchValue.setText(currentEntry.isHadLunch() ? "Yes" : "No");
         holder.textViewHadDinnerValue.setText(currentEntry.isHadDinner() ? "Yes" : "No");
+
+        holder.textViewNoteValue.setText(currentEntry.getNote().isEmpty() ? "No note available" : currentEntry.getNote());
     }
 }

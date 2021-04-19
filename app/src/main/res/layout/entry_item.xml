@@ -152,6 +152,32 @@
                 android:layout_below="@+id/text_view_had_lunch"
                 android:layout_toRightOf="@id/text_view_had_dinner"
                 android:text="Yes"/>
+
+            <ImageView
+                android:id="@+id/image_view_note"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_speaker_note"
+                android:layout_below="@+id/image_view_dinner"
+                android:layout_marginTop="3dp"/>
+
+            <TextView
+                android:id="@+id/text_view_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/image_view_dinner"
+                android:layout_below="@+id/text_view_had_dinner"
+                android:text="Note: " />
+
+            <TextView
+                android:id="@+id/text_view_note_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/image_view_note"
+                android:layout_below="@+id/text_view_note"
+                android:text="I am happy. Today was a great day." />
         
             </RelativeLayout>
 
