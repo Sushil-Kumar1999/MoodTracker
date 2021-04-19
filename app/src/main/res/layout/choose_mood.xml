@@ -10,29 +10,12 @@
     android:background="@color/white"
     tools:context="com.example.moodtracker.CreateEntryActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_weight="1">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="305dp"
-            android:layout_marginTop="10dp"
-            android:text="Skip"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textColor="@color/black"
-            app:backgroundTint="@color/white"
-            android:layout_marginLeft="305dp" />
-    </FrameLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
 
         <ImageButton
             android:id="@+id/button_angry_mood"
@@ -102,8 +85,9 @@
         android:id="@+id/Explanation"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:paddingTop="8dp"
+
         android:paddingHorizontal="25dp"
+        android:layout_gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="20sp"
         android:text="@string/mood_question_exp"
@@ -113,16 +97,33 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp">
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="15dp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/image_view_add_note"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp"
             android:src="@drawable/ic_note_add"
             android:onClick="openNoteDialog"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/image_view_add_note"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:text="Add an optional note" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
 
         <Button
             android:id="@+id/button_next"
@@ -135,6 +136,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             android:enabled="false"
             android:onClick="gotToAppetiteView"/>
+
     </RelativeLayout>
 
 </LinearLayout>
