@@ -110,21 +110,31 @@
         android:gravity="center_horizontal"
         android:textAlignment="gravity"/>
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_note_add"
+            android:onClick="openNoteDialog"/>
 
         <Button
             android:id="@+id/button_next"
             android:layout_width="80dp"
             android:layout_height="50dp"
-            android:layout_marginStart="305dp"
-            android:layout_marginLeft="305dp"
-            android:layout_marginBottom="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="15dp"
             android:text="Next"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             android:enabled="false"
             android:onClick="gotToAppetiteView"/>
-    </FrameLayout>
+    </RelativeLayout>
 
 </LinearLayout>

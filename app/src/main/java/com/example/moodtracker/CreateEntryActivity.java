@@ -1,8 +1,11 @@
 package com.example.moodtracker;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.lifecycle.ViewModelProvider;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +23,8 @@ public class CreateEntryActivity extends AppCompatActivity {
 
     private ImageButton selectedButton;
     private Button nextButton;
+    private EditText noteEditText;
+    private AlertDialog noteDialog;
 
     private SwitchCompat breakfastSwitch;
     private SwitchCompat lunchSwitch;
@@ -36,6 +41,18 @@ public class CreateEntryActivity extends AppCompatActivity {
         newEntry = new Entry();
         entryViewModel = new ViewModelProvider(this).get(EntryViewModel.class);
         nextButton = findViewById(R.id.button_next);
+
+        noteEditText = new EditText(this);
+        noteDialog = new AlertDialog.Builder(this)
+                .setTitle("Add Note")
+                .setMessage("Add an optional note to give context to your mood")
+                .setView(noteEditText)
+                .setPositiveButton("OK", (dialogInterface, i) -> {
+                    newEntry.setNote(noteEditText.getText().toString());
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+
     }
 
     public void angryMoodSelected(View view) {
@@ -123,6 +140,10 @@ public class CreateEntryActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DashboardActivity.class);
         intent.putExtra("New entry created", true);
         startActivity(intent);
+    }
+
+    public void openNoteDialog(View view) {
+        noteDialog.show();
     }
 
     private void logEntry() {
