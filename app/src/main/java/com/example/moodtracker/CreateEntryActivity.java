@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
 import java.util.Calendar;
 
-public class ChooseMoodActivity extends AppCompatActivity {
+public class CreateEntryActivity extends AppCompatActivity {
 
     private EntryViewModel entryViewModel;
     private Entry newEntry;
@@ -29,7 +31,7 @@ public class ChooseMoodActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_mood);
+        setContentView(R.layout.choose_mood);
         setTitle("Choose your mood");
 
         newEntry = new Entry();
@@ -39,26 +41,31 @@ public class ChooseMoodActivity extends AppCompatActivity {
 
     public void angryMoodSelected(View view) {
         newEntry.setMood(Mood.Angry);
+        Toast.makeText(this, "Angry selected", Toast.LENGTH_SHORT).show();
         select((ImageButton) view);
     }
 
     public void sadMoodSelected(View view) {
         newEntry.setMood(Mood.Sad);
+        Toast.makeText(this, "Sad selected", Toast.LENGTH_SHORT).show();
         select((ImageButton) view);
     }
 
     public void mehMoodSelected(View view) {
         newEntry.setMood(Mood.Meh);
+        Toast.makeText(this, "Meh selected", Toast.LENGTH_SHORT).show();
         select((ImageButton) view);
     }
 
     public void happyMoodSelected(View view) {
         newEntry.setMood(Mood.Happy);
+        Toast.makeText(this, "Happy selected", Toast.LENGTH_SHORT).show();
         select((ImageButton) view);
     }
 
     public void cheerfulMoodSelected(View view) {
         newEntry.setMood(Mood.Cheerful);
+        Toast.makeText(this, "Cheerful selected", Toast.LENGTH_SHORT).show();
         select((ImageButton) view);
     }
 

@@ -60,7 +60,7 @@
             android:layout_alignParentRight="true"
             android:text="Next"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:onClick="launchHomeScreenActivity" />
+            android:onClick="launchDashboardActivity" />
     </RelativeLayout>
 
 </LinearLayout>

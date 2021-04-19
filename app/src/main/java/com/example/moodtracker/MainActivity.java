@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Mood Tracker");
     }
 
-    public void launchHomeScreenActivity(View view) {
+    public void launchDashboardActivity(View view) {
         Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
     }

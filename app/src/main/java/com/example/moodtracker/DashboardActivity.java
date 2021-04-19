@@ -16,8 +16,8 @@ public class DashboardActivity extends AppCompatActivity {
         setTitle("Dashboard");
     }
 
-    public void launchSecondActivity(View view) {
-        Intent intent = new Intent(this, ChooseMoodActivity.class);
+    public void launchCreateEntryActivity(View view) {
+        Intent intent = new Intent(this, CreateEntryActivity.class);
         startActivity(intent);
     }
 
