@@ -11,6 +11,14 @@
         android:theme="@style/Theme.MoodTracker">
 
         <activity
+            android:name=".SleepStatsActivity"
+            android:parentActivityName=".StatisticsActivity" />
+
+        <activity
+            android:name=".StatisticsActivity"
+            android:parentActivityName=".DashboardActivity" />
+
+        <activity
             android:name=".EntryHistoryActivity"
             android:parentActivityName=".DashboardActivity" />
 
@@ -37,7 +45,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.moodtracker.DashboardActivity" />
         </activity>
-
     </application>
 
 </manifest>

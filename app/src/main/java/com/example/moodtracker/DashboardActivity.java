@@ -30,4 +30,8 @@ public class DashboardActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EntryHistoryActivity.class);
         startActivity(intent);
     }
+
+    public void launchStatisticsActivity(View view) {
+        startActivity(new Intent(this, StatisticsActivity.class));
+    }
 }
