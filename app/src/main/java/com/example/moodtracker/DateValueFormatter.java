@@ -1,10 +1,6 @@
 package com.example.moodtracker;
 
-import com.github.mikephil.charting.components.AxisBase;
-import com.github.mikephil.charting.formatter.DefaultAxisValueFormatter;
-import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
