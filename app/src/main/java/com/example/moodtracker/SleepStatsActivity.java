@@ -44,11 +44,12 @@ public class SleepStatsActivity extends AppCompatActivity {
         ArrayList<com.github.mikephil.charting.data.Entry> chartDataArray = new ArrayList<>();
 
         for (Entry entry : entryList) {
-            chartDataArray.add(
+            com.github.mikephil.charting.data.Entry chartDataEntry =
                     new com.github.mikephil.charting.data.Entry(
                             Long.valueOf(entry.getDate().getTime()).floatValue(),
-                            entry.getSleepDuration())
-                    );
+                            entry.getSleepDuration());
+            chartDataEntry.setData(entry); // Entry object needed later for marker view
+            chartDataArray.add(chartDataEntry);
         }
 
         LineDataSet dataSet = new LineDataSet(chartDataArray, "Sleep durations");
@@ -73,7 +74,7 @@ public class SleepStatsActivity extends AppCompatActivity {
         chart.getDescription().setEnabled(false);
         chart.animateXY(1000, 1000);
 
-        SleepDataMarkerView markerView = new SleepDataMarkerView(this, R.layout.sleep_marker_view);
+        SleepDataMarkerView markerView = new SleepDataMarkerView(this, R.layout.sleep_marker_view, entryViewModel);
         chart.setMarker(markerView);
 
         chart.invalidate();

@@ -1,7 +1,7 @@
 package com.example.moodtracker;
 
 import android.content.Context;
-import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.github.mikephil.charting.components.MarkerView;
 import com.github.mikephil.charting.highlight.Highlight;
@@ -14,21 +14,29 @@ public class SleepDataMarkerView extends MarkerView {
     private MPPointF mOffset;
     private TextView textViewSleepDuration;
     private TextView textViewDate;
+    private TextView textViewMoodValue;
+    private ImageView imageViewMood;
 
-    public SleepDataMarkerView(Context context, int layoutResource) {
+    public SleepDataMarkerView(Context context, int layoutResource, EntryViewModel eViewModel) {
         super(context, layoutResource);
 
         textViewSleepDuration = findViewById(R.id.mv_tv_sd);
         textViewDate = findViewById(R.id.mv_tv_date);
+        textViewMoodValue = findViewById(R.id.mv_tv_mood_value);
+        imageViewMood = findViewById(R.id.mv_iv_mood);
     }
 
     @Override
     public void refreshContent(com.github.mikephil.charting.data.Entry e, Highlight highlight) {
         textViewSleepDuration.setText(String.format("Sleep duration: %s hours", e.getY()));
 
-        String date = new SimpleDateFormat("dd MMMM YYYY")
-                .format(new Date(new Float(e.getX()).longValue()));
-        textViewDate.setText(String.format("Date: %s", date));
+        Date date = new Date(Float.valueOf(e.getX()).longValue());
+        String formattedDate = new SimpleDateFormat("dd MMMM YYYY").format(date);
+        textViewDate.setText(String.format("Date: %s", formattedDate));
+
+        Entry entryData = (Entry) e.getData();
+        textViewMoodValue.setText(entryData.getMood().toString());
+        imageViewMood.setImageResource(Utilities.getEmojiResourceId(entryData.getMood()));
 
         super.refreshContent(e, highlight);
     }

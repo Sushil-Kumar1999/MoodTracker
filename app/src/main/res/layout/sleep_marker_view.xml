@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="50dp"
+    android:layout_height="80dp"
     android:paddingHorizontal="10dp"
     android:paddingTop="5dp"
     android:background="@drawable/marker_bg">
@@ -27,5 +27,36 @@
         android:singleLine="true"
         android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/mv_tv_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mv_tv_date"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="3dp"
+        android:textSize="10sp"
+        android:text="Mood: " />
+
+    <TextView
+        android:id="@+id/mv_tv_mood_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mv_tv_date"
+        android:layout_toRightOf="@id/mv_tv_mood"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="3dp"
+        android:textSize="10sp"
+        android:text="Cheerful" />
+
+    <ImageView
+        android:id="@+id/mv_iv_mood"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_toRightOf="@+id/mv_tv_mood_value"
+        android:layout_below="@+id/mv_tv_date"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/very_happy_face" />
 
 </RelativeLayout>
