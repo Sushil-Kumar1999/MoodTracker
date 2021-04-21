@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import java.util.Date;
 import java.util.List;
 
 public class EntryViewModel extends AndroidViewModel {
@@ -28,5 +29,9 @@ public class EntryViewModel extends AndroidViewModel {
 
     public LiveData<List<Entry>> getAllEntries() {
         return allEntries;
+    }
+
+    public List<Entry> findEntriesByMood(Mood mood) {
+        return entryRepository.findEntriesByMood(mood);
     }
 }

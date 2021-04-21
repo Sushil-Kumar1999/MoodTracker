@@ -16,4 +16,12 @@
     <string name="breakfast_question">Did you have breakfast?</string>
     <string name="lunch_question">Did you have lunch?</string>
     <string name="dinner_question">Did you have dinner?</string>
+
+    <string-array name="moods">
+        <item>Cheerful</item>
+        <item>Happy</item>
+        <item>Meh</item>
+        <item>Sad</item>
+        <item>Angry</item>
+    </string-array>
 </resources>
