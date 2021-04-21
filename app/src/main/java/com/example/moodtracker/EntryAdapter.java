@@ -119,10 +119,7 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
         holder.textViewHadLunchValue.setText(currentEntry.isHadLunch() ? "Yes" : "No");
         holder.textViewHadDinnerValue.setText(currentEntry.isHadDinner() ? "Yes" : "No");
 
-        if (currentEntry.getNote() == null) {
-            holder.textViewNoteValue.setText("No note available");
-        }
-        else if (currentEntry.getNote().isEmpty()) {
+        if (currentEntry.getNote().isEmpty()) {
             holder.textViewNoteValue.setText("No note available");
         }
         else {

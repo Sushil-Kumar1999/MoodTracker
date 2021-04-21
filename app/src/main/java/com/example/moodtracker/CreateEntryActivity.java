@@ -39,6 +39,7 @@ public class CreateEntryActivity extends AppCompatActivity {
         setTitle("Choose your mood");
 
         newEntry = new Entry();
+        newEntry.setNote("");
         entryViewModel = new ViewModelProvider(this).get(EntryViewModel.class);
         nextButton = findViewById(R.id.button_next);
 
