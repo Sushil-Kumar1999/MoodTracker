@@ -1,9 +1,9 @@
 package com.example.moodtracker;
 
 public enum Mood {
-    Cheerful,
-    Happy,
-    Meh,
+    Angry,
     Sad,
-    Angry
+    Meh,
+    Happy,
+    Cheerful
 }
