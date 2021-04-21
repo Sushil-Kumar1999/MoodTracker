@@ -100,48 +100,6 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
         }
     }
 
-    private int getEmojiResourceId(Mood mood) {
-        int resId = R.drawable.very_happy_face; // mood - cheerful
-
-        switch (mood) {
-            case Happy:
-                resId = R.drawable.happy_face;
-                break;
-            case Meh:
-                resId = R.drawable.neutral_face;
-                break;
-            case Sad:
-                resId = R.drawable.very_sad_face;
-                break;
-            case Angry:
-                resId = R.drawable.angry_face;
-                break;
-        }
-
-        return resId;
-    }
-
-    private int getColor(Mood mood) {
-        int colorInt = Color.parseColor("#FFFF00"); //yellow for cheerful mood
-
-        switch (mood) {
-            case Happy:
-                colorInt = Color.parseColor("#98FB98");
-                break;
-            case Meh:
-                colorInt = Color.parseColor("#6495ED");
-                break;
-            case Sad:
-                colorInt = Color.parseColor("#A9A9A9");
-                break;
-            case Angry:
-                colorInt = Color.parseColor("#DC143C");
-                break;
-        }
-
-        return colorInt;
-    }
-
     private void bindData(EntryHolder holder, Entry currentEntry) {
         Mood currentMood = currentEntry.getMood();
         holder.textViewMood.setText(currentMood.toString());
@@ -152,8 +110,8 @@ public class EntryAdapter extends ListAdapter<Entry, EntryAdapter.EntryHolder> {
                 .format(currentDate);
         holder.textViewDateTime.setText(dateString);
 
-        holder.imageViewMood.setImageResource(getEmojiResourceId(currentMood));
-        holder.relativeLayout.setBackgroundColor(getColor(currentMood));
+        holder.imageViewMood.setImageResource(Utilities.getEmojiResourceId(currentMood));
+        holder.relativeLayout.setBackgroundColor(Utilities.getColor(currentMood));
 
         holder.containerEntryDetails.setVisibility(holder.isExpanded ? View.VISIBLE : View.GONE);
         holder.textViewSleepDuration.setText(String.format("%s hours", currentEntry.getSleepDuration()));
