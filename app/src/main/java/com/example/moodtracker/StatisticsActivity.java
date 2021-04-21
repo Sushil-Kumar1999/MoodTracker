@@ -53,6 +53,10 @@ public class StatisticsActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), MoodCountActivity.class));
     }
 
+    public void launchMoodVariationActivity(View view) {
+        startActivity(new Intent(getApplicationContext(), MoodVariationActivity.class));
+    }
+
     private void launchSleepStatsAllActivity() {
         startActivity(new Intent(getApplicationContext(), SleepStatsAllActivity.class));
     }
