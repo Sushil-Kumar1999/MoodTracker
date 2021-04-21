@@ -18,6 +18,7 @@
     <string name="dinner_question">Did you have dinner?</string>
 
     <string-array name="moods">
+        <item>All</item>
         <item>Cheerful</item>
         <item>Happy</item>
         <item>Meh</item>

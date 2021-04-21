@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class SleepStatsActivity extends AppCompatActivity {
+public class SleepStatsAllActivity extends AppCompatActivity {
 
     public static final float ONE_DAY_IN_MILLISECONDS = 86400000;
     private LineChart chart;
@@ -26,7 +26,7 @@ public class SleepStatsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sleep_stats);
+        setContentView(R.layout.activity_sleep_stats_all);
         setTitle("Sleep duration vs time");
 
         chart = findViewById(R.id.sleep_chart);

@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 public class StatisticsActivity extends AppCompatActivity {
 
@@ -42,11 +41,23 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     public void launchSleepStatsActivity(View view) {
-        startActivity(new Intent(getApplicationContext(), SleepStatsActivity.class));
+        if (selectedMood.equals("All")) {
+            launchSleepStatsAllActivity();
+        }
+        else {
+            launchSleepStatsMoodActivity();
+        }
     }
 
-    public void launchSleepStatsMoodActivity(View view) {
-        Toast.makeText(getApplicationContext(), selectedMood, Toast.LENGTH_SHORT).show();
+    public void launchMoodCountActivity(View view) {
+        startActivity(new Intent(getApplicationContext(), MoodCountActivity.class));
+    }
+
+    private void launchSleepStatsAllActivity() {
+        startActivity(new Intent(getApplicationContext(), SleepStatsAllActivity.class));
+    }
+
+    private void launchSleepStatsMoodActivity() {
         Intent intent = new Intent(getApplicationContext(), SleepStatsMoodActivity.class);
         intent.putExtra("Mood", selectedMood);
         startActivity(intent);

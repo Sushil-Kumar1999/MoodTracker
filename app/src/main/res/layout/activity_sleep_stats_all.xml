@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SleepStatsActivity">
+    tools:context=".SleepStatsAllActivity">
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/sleep_chart"

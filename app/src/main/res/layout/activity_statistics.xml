@@ -18,16 +18,53 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:textSize="20sp"
-            android:text="Sleep duration vs Time" />
+            android:text="Sleep duration for mood" />
+
+        <Spinner
+            android:id="@+id/spinner_sleep_stats_mood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
-            android:id="@+id/button_sleep_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/spinner_sleep_stats_mood"
+            android:text="View"
+            android:onClick="launchSleepStatsActivity"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginVertical="10dp"
+        android:background="?android:attr/listDivider" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="20sp"
+            android:text="Mood" />
+
+        <Button
+            android:id="@+id/button_mood_stats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:text="View"
-            android:onClick="launchSleepStatsActivity"/>
+            android:onClick="launchMoodCountActivity"/>
 
     </RelativeLayout>
 
@@ -47,75 +84,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:textSize="20sp"
-            android:text="Sleep duration for mood" />
-
-        <Spinner
-            android:id="@+id/spinner_sleep_stats_mood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/spinner_sleep_stats_mood"
-            android:text="View"
-            android:onClick="launchSleepStatsMoodActivity"/>
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginVertical="10dp"
-        android:background="?android:attr/listDivider" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:textSize="25sp"
-            android:text="Mood" />
-
-        <Button
-            android:id="@+id/button_mood_stats"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:text="View" />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginVertical="5dp"
-        android:background="?android:attr/listDivider" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:textSize="25sp"
             android:text="Appetite" />
 
         <Button
-            android:id="@+id/button_apppetite_stats"
+            android:id="@+id/button_appetite_stats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

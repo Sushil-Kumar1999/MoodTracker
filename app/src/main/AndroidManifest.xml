@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoodTracker">
         <activity
-            android:name=".SleepStatsMoodActivity"
+            android:name=".MoodCountActivity"
             android:parentActivityName=".StatisticsActivity"></activity>
         <activity
-            android:name=".SleepStatsActivity"
+            android:name=".SleepStatsMoodActivity"
+            android:parentActivityName=".StatisticsActivity" />
+        <activity
+            android:name=".SleepStatsAllActivity"
             android:parentActivityName=".StatisticsActivity" />
         <activity
             android:name=".StatisticsActivity"
