@@ -1,31 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center"
     tools:context=".StatisticsActivity">
 
-    <Button
-        android:id="@+id/button_sleep_stats"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sleep duration vs Time"
-        android:onClick="launchSleepStatsActivity"/>
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/button_mood_stats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mood" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="25sp"
+            android:text="Sleep duration vs Time" />
 
-    <Button
-        android:id="@+id/button_apppetite_stats"
+        <Button
+            android:id="@+id/button_sleep_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="View"
+            android:onClick="launchSleepStatsActivity"/>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Appetite" />
+        android:layout_height="2dp"
+        android:layout_marginVertical="5dp"
+        android:background="?android:attr/listDivider" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="25sp"
+            android:text="Mood" />
+
+        <Button
+            android:id="@+id/button_mood_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="View" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginVertical="5dp"
+        android:background="?android:attr/listDivider" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:textSize="25sp"
+            android:text="Appetite" />
+
+        <Button
+            android:id="@+id/button_apppetite_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="View" />
+
+    </RelativeLayout>
 
 </LinearLayout>
