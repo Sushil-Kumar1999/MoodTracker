@@ -38,13 +38,12 @@ public class EntryDataMarkerView extends MarkerView {
 
     @Override
     public void refreshContent(com.github.mikephil.charting.data.Entry e, Highlight highlight) {
-        textViewSleepDuration.setText(String.format("Sleep duration: %s hours", e.getY()));
-
-        Date date = new Date(Float.valueOf(e.getX()).longValue());
-        String formattedDate = new SimpleDateFormat("dd MMMM YYYY").format(date);
-        textViewDate.setText(String.format("Date: %s", formattedDate));
-
         Entry entryData = (Entry) e.getData();
+
+        String formattedDate = new SimpleDateFormat("dd MMMM YYYY").format(entryData.getDate());
+        textViewDate.setText(String.format("Date: %s", formattedDate));
+        
+        textViewSleepDuration.setText(String.format("Sleep duration: %s hours", entryData.getSleepDuration()));
         textViewMood.setText(String.format("Mood: %s", entryData.getMood().toString()));
         imageViewMood.setImageResource(Utilities.getEmojiResourceId(entryData.getMood()));
         textViewBreakfast.setText(String.format("Had Breakfast: %s", getAnswer(entryData.isHadBreakfast())));
