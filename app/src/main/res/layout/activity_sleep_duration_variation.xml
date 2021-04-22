@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".activities.SleepDurationAllMoodsActivity">
+    tools:context=".activities.SleepDurationVariationActivity">
 
     <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart_sleep_duration_all_moods"
+        android:id="@+id/chart_sleep_duration_variation"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

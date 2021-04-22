@@ -22,7 +22,7 @@
             android:name=".activities.SleepDurationSingleMoodActivity"
             android:parentActivityName=".activities.StatisticsActivity" />
         <activity
-            android:name=".activities.SleepDurationAllMoodsActivity"
+            android:name=".activities.SleepDurationVariationActivity"
             android:parentActivityName=".activities.StatisticsActivity" />
         <activity
             android:name=".activities.StatisticsActivity"

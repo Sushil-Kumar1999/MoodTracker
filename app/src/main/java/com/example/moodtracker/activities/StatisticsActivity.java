@@ -10,11 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.moodtracker.R;
-import com.example.moodtracker.activities.MoodCountActivity;
-import com.example.moodtracker.activities.MoodVariationActivity;
-import com.example.moodtracker.activities.MoodVariationSingleMealActivity;
-import com.example.moodtracker.activities.SleepDurationAllMoodsActivity;
-import com.example.moodtracker.activities.SleepDurationSingleMoodActivity;
 
 public class StatisticsActivity extends AppCompatActivity {
 
@@ -32,6 +27,10 @@ public class StatisticsActivity extends AppCompatActivity {
 
         setupMoodSpinner();
         setupMealSpinner();
+    }
+
+    public void launchSleepDurationVariationActivity(View view) {
+        startActivity(new Intent(getApplicationContext(), SleepDurationVariationActivity.class));
     }
 
     public void viewSleepDurationStats(View view) {
@@ -58,7 +57,7 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     private void launchSleepDurationAllMoodsActivity() {
-        startActivity(new Intent(getApplicationContext(), SleepDurationAllMoodsActivity.class));
+        startActivity(new Intent(getApplicationContext(), SleepDurationVariationActivity.class));
     }
 
     private void launchSleepDurationSingleMoodActivity() {
