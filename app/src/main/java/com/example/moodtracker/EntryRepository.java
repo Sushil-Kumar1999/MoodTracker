@@ -48,6 +48,51 @@ public class EntryRepository {
         }
     }
 
+    public List<Entry> findEntriesByBreakfast(boolean hadBreakfast) {
+
+        try {
+            return new FindEntriesByBreakfastAsyncTask(entryDao).execute(hadBreakfast).get();
+        }
+        catch(ExecutionException e) {
+            Log.e("ExecutionException", e.getMessage());
+            return null;
+        }
+        catch ( InterruptedException i) {
+            Log.e("InterruptedException", i.getMessage());
+            return null;
+        }
+    }
+
+    public List<Entry> findEntriesByLunch(boolean hadLunch) {
+
+        try {
+            return new FindEntriesByLunchAsyncTask(entryDao).execute(hadLunch).get();
+        }
+        catch(ExecutionException e) {
+            Log.e("ExecutionException", e.getMessage());
+            return null;
+        }
+        catch ( InterruptedException i) {
+            Log.e("InterruptedException", i.getMessage());
+            return null;
+        }
+    }
+
+    public List<Entry> findEntriesByDinner(boolean hadDinner) {
+
+        try {
+            return new FindEntriesByDinnerAsyncTask(entryDao).execute(hadDinner).get();
+        }
+        catch(ExecutionException e) {
+            Log.e("ExecutionException", e.getMessage());
+            return null;
+        }
+        catch ( InterruptedException i) {
+            Log.e("InterruptedException", i.getMessage());
+            return null;
+        }
+    }
+
     private static class InsertEntryAsyncTask extends AsyncTask<Entry, Void, Void> {
 
         private EntryDao entryDao;
@@ -79,6 +124,7 @@ public class EntryRepository {
     }
 
     private class FindEntriesByMoodAsyncTask extends AsyncTask<Mood, Void,List<Entry>> {
+
         private EntryDao entryDao;
 
         private FindEntriesByMoodAsyncTask(EntryDao entryDao) {
@@ -90,4 +136,46 @@ public class EntryRepository {
             return entryDao.findEntriesByMood(moods[0]);
         }
     }
-}
+
+    private class FindEntriesByBreakfastAsyncTask extends AsyncTask<Boolean, Void, List<Entry>> {
+
+        private EntryDao entryDao;
+
+        private FindEntriesByBreakfastAsyncTask(EntryDao entryDao) {
+            this.entryDao = entryDao;
+        }
+
+        @Override
+        protected List<Entry> doInBackground(Boolean... booleans) {
+            return entryDao.findEntriesByBreakfast(booleans[0]);
+        }
+    }
+
+    private class FindEntriesByLunchAsyncTask extends AsyncTask<Boolean, Void, List<Entry>> {
+
+        private EntryDao entryDao;
+
+        private FindEntriesByLunchAsyncTask(EntryDao entryDao) {
+            this.entryDao = entryDao;
+        }
+
+        @Override
+        protected List<Entry> doInBackground(Boolean... booleans) {
+            return entryDao.findEntriesByLunch(booleans[0]);
+        }
+    }
+
+    private class FindEntriesByDinnerAsyncTask extends AsyncTask<Boolean, Void, List<Entry>> {
+
+        private EntryDao entryDao;
+
+        private FindEntriesByDinnerAsyncTask(EntryDao entryDao) {
+            this.entryDao = entryDao;
+        }
+
+        @Override
+        protected List<Entry> doInBackground(Boolean... booleans) {
+            return entryDao.findEntriesByDinner(booleans[0]);
+        }
+    }
+ }

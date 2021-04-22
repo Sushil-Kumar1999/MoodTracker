@@ -34,4 +34,16 @@ public class EntryViewModel extends AndroidViewModel {
     public List<Entry> findEntriesByMood(Mood mood) {
         return entryRepository.findEntriesByMood(mood);
     }
+
+    public List<Entry> findEntriesByBreakfast(boolean hadBreakfast) {
+       return entryRepository.findEntriesByBreakfast(true);
+    }
+
+    public List<Entry> findEntriesByLunch(boolean hadLunch) {
+        return entryRepository.findEntriesByLunch(true);
+    }
+
+    public List<Entry> findEntriesByDinner(boolean hadDinner) {
+        return entryRepository.findEntriesByDinner(true);
+    }
 }
