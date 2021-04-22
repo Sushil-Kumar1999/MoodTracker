@@ -89,7 +89,6 @@ public class MoodVariationSingleMealActivity extends AppCompatActivity {
 
         LineDataSet mealEatenDataSet = new LineDataSet(getChartEntries(mealEatenEntryList), "");
         mealEatenDataSet.setLabel(selectedMeal + " eaten");
-        //dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
         mealEatenDataSet.setColor(Color.GREEN);
         mealEatenDataSet.setDrawValues(false);
 
