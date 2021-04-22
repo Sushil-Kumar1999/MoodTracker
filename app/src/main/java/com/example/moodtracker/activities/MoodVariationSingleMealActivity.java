@@ -2,6 +2,8 @@ package com.example.moodtracker.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.example.moodtracker.formatters.DateValueFormatter;
@@ -16,6 +18,8 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.IDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,24 +28,24 @@ public class MoodVariationSingleMealActivity extends AppCompatActivity {
 
     private LineChart lineChart;
     private EntryViewModel entryViewModel;
-    private List<Entry> entryList;
+    private String selectedMeal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood_variation_single_meal);
 
-        String selectedMeal =  getIntent().getStringExtra("Meal");
+        selectedMeal =  getIntent().getStringExtra("Meal");
         setTitle(String.format("Mood variation for %s", selectedMeal));
 
         lineChart = findViewById(R.id.chart_mood_variation_single_meal);
 
         entryViewModel = new ViewModelProvider(this).get(EntryViewModel.class);
-        entryList = getEntryList(selectedMeal);
+
         setChartData();
     }
 
-    private List<Entry> getEntryList(String selectedMeal) {
+    private List<Entry> getMealEatenEntryList(String selectedMeal) {
         List<Entry> result;
         switch (selectedMeal) {
             case "Breakfast" : 
@@ -60,24 +64,46 @@ public class MoodVariationSingleMealActivity extends AppCompatActivity {
         return result;
     }
 
-    private void setChartData() {
-        ArrayList<com.github.mikephil.charting.data.Entry> chartDataArray = new ArrayList<>();
-
-        for (Entry entry : entryList) {
-            com.github.mikephil.charting.data.Entry chartDataEntry =
-                    new com.github.mikephil.charting.data.Entry(
-                            Long.valueOf(entry.getDate().getTime()).floatValue(),
-                            entry.getMood().ordinal());
-            chartDataEntry.setData(entry); // Entry object needed later for marker view
-            chartDataArray.add(chartDataEntry);
+    private List<Entry> getMealNotEatenEntryList(String selectedMeal) {
+        List<Entry> result;
+        switch (selectedMeal) {
+            case "Breakfast" :
+                result = entryViewModel.findEntriesByBreakfast(false);
+                break;
+            case "Lunch" :
+                result = entryViewModel.findEntriesByLunch(false);
+                break;
+            case "Dinner" :
+                result = entryViewModel.findEntriesByDinner(false);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + selectedMeal);
         }
 
-        LineDataSet dataSet = new LineDataSet(chartDataArray, "Mood variations for meal");
-        dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
-        dataSet.setDrawValues(false);
+        return result;
+    }
 
-        LineData lineData = new LineData();
-        lineData.addDataSet(dataSet);
+    private void setChartData() {
+        List<Entry> mealEatenEntryList = getMealEatenEntryList(selectedMeal);
+        List<Entry> mealNotEatenEntryList = getMealNotEatenEntryList(selectedMeal);
+
+        LineDataSet mealEatenDataSet = new LineDataSet(getChartEntries(mealEatenEntryList), "");
+        mealEatenDataSet.setLabel(selectedMeal + " eaten");
+        //dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        mealEatenDataSet.setColor(Color.GREEN);
+        mealEatenDataSet.setDrawValues(false);
+
+        LineDataSet mealNotEatenDataSet = new LineDataSet(getChartEntries(mealNotEatenEntryList), "");
+        mealNotEatenDataSet.setLabel(selectedMeal + " not eaten");
+        mealNotEatenDataSet.setColor(Color.RED);
+        mealNotEatenDataSet.setDrawValues(false);
+
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(mealEatenDataSet);
+        dataSets.add(mealNotEatenDataSet);
+
+        LineData lineData = new LineData(dataSets);
+        lineChart.setData(lineData);
 
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -98,8 +124,6 @@ public class MoodVariationSingleMealActivity extends AppCompatActivity {
 
         lineChart.getAxisRight().setEnabled(false);
 
-        lineChart.getLegend().setEnabled(false);
-        lineChart.setData(lineData);
         lineChart.getDescription().setEnabled(false);
         lineChart.animateXY(1000, 1000);
 
@@ -107,5 +131,20 @@ public class MoodVariationSingleMealActivity extends AppCompatActivity {
         lineChart.setMarker(markerView);
 
         lineChart.invalidate();
+    }
+
+    private ArrayList<com.github.mikephil.charting.data.Entry> getChartEntries(List<Entry> dbEntryList) {
+        ArrayList<com.github.mikephil.charting.data.Entry> chartDataEntries = new ArrayList<>();
+
+        for (Entry dbEntry : dbEntryList) {
+            com.github.mikephil.charting.data.Entry chartDataEntry =
+                    new com.github.mikephil.charting.data.Entry(
+                            Long.valueOf(dbEntry.getDate().getTime()).floatValue(),
+                            dbEntry.getMood().ordinal());
+            chartDataEntry.setData(dbEntry); // Entry object needed later for marker view
+            chartDataEntries.add(chartDataEntry);
+        }
+
+        return chartDataEntries;
     }
 }

@@ -39,14 +39,14 @@ public class EntryViewModel extends AndroidViewModel {
     }
 
     public List<Entry> findEntriesByBreakfast(boolean hadBreakfast) {
-       return entryRepository.findEntriesByBreakfast(true);
+       return entryRepository.findEntriesByBreakfast(hadBreakfast);
     }
 
     public List<Entry> findEntriesByLunch(boolean hadLunch) {
-        return entryRepository.findEntriesByLunch(true);
+        return entryRepository.findEntriesByLunch(hadLunch);
     }
 
     public List<Entry> findEntriesByDinner(boolean hadDinner) {
-        return entryRepository.findEntriesByDinner(true);
+        return entryRepository.findEntriesByDinner(hadDinner);
     }
 }
