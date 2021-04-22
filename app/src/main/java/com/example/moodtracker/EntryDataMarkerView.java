@@ -13,21 +13,27 @@ import com.github.mikephil.charting.utils.MPPointF;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class SleepDataMarkerView extends MarkerView {
+public class EntryDataMarkerView extends MarkerView {
 
     private MPPointF mOffset;
     private TextView textViewSleepDuration;
     private TextView textViewDate;
-    private TextView textViewMoodValue;
+    private TextView textViewMood;
     private ImageView imageViewMood;
+    private TextView textViewBreakfast;
+    private TextView textViewLunch;
+    private TextView textViewDinner;
 
-    public SleepDataMarkerView(Context context, int layoutResource, EntryViewModel eViewModel) {
+    public EntryDataMarkerView(Context context, int layoutResource) {
         super(context, layoutResource);
 
         textViewSleepDuration = findViewById(R.id.mv_tv_sd);
         textViewDate = findViewById(R.id.mv_tv_date);
-        textViewMoodValue = findViewById(R.id.mv_tv_mood_value);
+        textViewMood = findViewById(R.id.mv_tv_mood);
         imageViewMood = findViewById(R.id.mv_iv_mood);
+        textViewBreakfast = findViewById(R.id.mv_tv_breakfast);
+        textViewLunch = findViewById(R.id.mv_tv_lunch);
+        textViewDinner = findViewById(R.id.mv_tv_dinner);
     }
 
     @Override
@@ -39,8 +45,11 @@ public class SleepDataMarkerView extends MarkerView {
         textViewDate.setText(String.format("Date: %s", formattedDate));
 
         Entry entryData = (Entry) e.getData();
-        textViewMoodValue.setText(entryData.getMood().toString());
+        textViewMood.setText(String.format("Mood: %s", entryData.getMood().toString()));
         imageViewMood.setImageResource(Utilities.getEmojiResourceId(entryData.getMood()));
+        textViewBreakfast.setText(String.format("Had Breakfast: %s", getAnswer(entryData.isHadBreakfast())));
+        textViewLunch.setText(String.format("Had Lunch: %s", getAnswer(entryData.isHadLunch())));
+        textViewDinner.setText(String.format("Had Dinner: %s", getAnswer(entryData.isHadDinner())));
 
         super.refreshContent(e, highlight);
     }
@@ -53,5 +62,9 @@ public class SleepDataMarkerView extends MarkerView {
             mOffset = new MPPointF(-(getWidth() / 2), -getHeight());
         }
         return mOffset;
+    }
+
+    private String getAnswer(boolean value) {
+        return value ? "Yes" : "No";
     }
 }

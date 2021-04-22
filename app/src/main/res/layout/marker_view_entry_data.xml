@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140dp"
+    android:layout_height="130dp"
+    android:paddingHorizontal="10dp"
+    android:paddingTop="5dp"
+    android:background="@drawable/marker_bg">
+
+    <TextView
+        android:id="@+id/mv_tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date: 24 March 2021"
+        android:textSize="10sp"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/mv_tv_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mv_tv_date"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="3dp"
+        android:textSize="10sp"
+        android:text="Mood: Cheerful" />
+
+    <ImageView
+        android:id="@+id/mv_iv_mood"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_toRightOf="@+id/mv_tv_mood"
+        android:layout_below="@+id/mv_tv_date"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="2dp"
+        android:src="@drawable/very_happy_face" />
+
+    <TextView
+        android:id="@+id/mv_tv_sd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mv_tv_mood"
+        android:layout_marginTop="3dp"
+        android:text="Sleep duration: 1.1 hours"
+        android:textSize="10sp"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/mv_tv_breakfast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mv_tv_sd"
+        android:text="Had Breakfast: Yes"
+        android:textSize="10sp"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/mv_tv_lunch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mv_tv_breakfast"
+        android:text="Had Lunch: Yes"
+        android:textSize="10sp"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/mv_tv_dinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mv_tv_lunch"
+        android:text="Had Dinner: Yes"
+        android:textSize="10sp"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>

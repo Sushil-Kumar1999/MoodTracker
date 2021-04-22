@@ -11,16 +11,15 @@ import com.example.moodtracker.data.Entry;
 import com.example.moodtracker.viewmodels.EntryViewModel;
 import com.example.moodtracker.formatters.MoodFormatter;
 import com.example.moodtracker.R;
-import com.example.moodtracker.SleepDataMarkerView;
+import com.example.moodtracker.EntryDataMarkerView;
 import com.example.moodtracker.utils.Utilities;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,7 +125,7 @@ public class MoodVariationSingleMealActivity extends AppCompatActivity {
         lineChart.getDescription().setEnabled(false);
         lineChart.animateXY(1000, 1000);
 
-        SleepDataMarkerView markerView = new SleepDataMarkerView(this, R.layout.sleep_marker_view, entryViewModel);
+        EntryDataMarkerView markerView = new EntryDataMarkerView(this, R.layout.marker_view_entry_data);
         lineChart.setMarker(markerView);
 
         lineChart.invalidate();

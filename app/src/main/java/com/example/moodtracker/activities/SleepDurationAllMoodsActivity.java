@@ -3,20 +3,17 @@ package com.example.moodtracker.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import com.example.moodtracker.R;
-import com.example.moodtracker.SleepDataMarkerView;
+import com.example.moodtracker.EntryDataMarkerView;
 import com.example.moodtracker.data.Entry;
 import com.example.moodtracker.data.Mood;
 import com.example.moodtracker.formatters.DateValueFormatter;
-import com.example.moodtracker.formatters.MoodFormatter;
 import com.example.moodtracker.utils.Utilities;
 import com.example.moodtracker.viewmodels.EntryViewModel;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
@@ -94,7 +91,7 @@ public class SleepDurationAllMoodsActivity extends AppCompatActivity {
         lineChart.getDescription().setEnabled(false);
         lineChart.animateXY(1000, 1000);
 
-        SleepDataMarkerView markerView = new SleepDataMarkerView(this, R.layout.sleep_marker_view, entryViewModel);
+        EntryDataMarkerView markerView = new EntryDataMarkerView(this, R.layout.marker_view_entry_data);
         lineChart.setMarker(markerView);
 
         lineChart.invalidate();
