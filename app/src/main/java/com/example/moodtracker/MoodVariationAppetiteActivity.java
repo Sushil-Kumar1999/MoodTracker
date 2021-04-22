@@ -64,7 +64,7 @@ public class MoodVariationAppetiteActivity extends AppCompatActivity {
             chartDataArray.add(chartDataEntry);
         }
 
-        LineDataSet dataSet = new LineDataSet(chartDataArray, "Mood variations");
+        LineDataSet dataSet = new LineDataSet(chartDataArray, "Mood variations for meal");
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
         dataSet.setDrawValues(false);
 

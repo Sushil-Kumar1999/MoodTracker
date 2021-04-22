@@ -30,7 +30,7 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/tv_stats_sleep_duration"
             android:layout_marginTop="12dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="Select mood" />
 
         <Spinner
@@ -142,7 +142,7 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/tv_stats_appetite"
             android:layout_marginTop="12dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="Select meal" />
 
         <Spinner

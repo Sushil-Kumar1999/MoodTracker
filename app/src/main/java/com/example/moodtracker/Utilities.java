@@ -4,6 +4,7 @@ import android.graphics.Color;
 
 public class Utilities {
 
+    // 24 hrs in milliseconds
     public static final float ONE_DAY_IN_MILLISECONDS = 86400000;
 
     public static int getEmojiResourceId(Mood mood) {

@@ -17,7 +17,6 @@ import java.util.List;
 
 public class SleepStatsMoodActivity extends AppCompatActivity {
 
-    public static final float ONE_DAY_IN_MILLISECONDS = 86400000;
     private LineChart chart;
     private EntryViewModel entryViewModel;
     private List<Entry> entryList;
@@ -60,11 +59,11 @@ public class SleepStatsMoodActivity extends AppCompatActivity {
 
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setSpaceMin(10 * ONE_DAY_IN_MILLISECONDS);
-        xAxis.setSpaceMax(10 * ONE_DAY_IN_MILLISECONDS);
+        xAxis.setSpaceMin(10 * Utilities.ONE_DAY_IN_MILLISECONDS);
+        xAxis.setSpaceMax(10 * Utilities.ONE_DAY_IN_MILLISECONDS);
         xAxis.setValueFormatter(new DateValueFormatter());
         xAxis.setGranularityEnabled(true);
-        xAxis.setGranularity(ONE_DAY_IN_MILLISECONDS); // 24 hrs in milliseconds
+        xAxis.setGranularity(Utilities.ONE_DAY_IN_MILLISECONDS);
 
         chart.getLegend().setEnabled(false);
         chart.setData(lineData);
