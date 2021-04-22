@@ -50,7 +50,7 @@
             android:layout_marginTop="5dp"
             android:layout_below="@+id/tv_stats_sleep_duration"
             android:text="View"
-            android:onClick="launchSleepStatsActivity"/>
+            android:onClick="viewSleepDurationStats"/>
 
     </RelativeLayout>
 
@@ -162,7 +162,7 @@
             android:layout_marginTop="5dp"
             android:layout_below="@+id/tv_stats_appetite"
             android:text="View"
-            android:onClick="launchMoodVariationAppetiteActivity"/>
+            android:onClick="launchMoodVariationSingleMealActivity"/>
 
     </RelativeLayout>
 

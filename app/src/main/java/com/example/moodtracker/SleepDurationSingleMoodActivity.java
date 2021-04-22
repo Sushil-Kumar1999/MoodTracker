@@ -15,7 +15,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SleepStatsMoodActivity extends AppCompatActivity {
+public class SleepDurationSingleMoodActivity extends AppCompatActivity {
 
     private LineChart chart;
     private EntryViewModel entryViewModel;
@@ -24,12 +24,12 @@ public class SleepStatsMoodActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sleep_stats_mood);
+        setContentView(R.layout.activity_sleep_duration_single_mood);
 
         String selectedMood =  getIntent().getStringExtra("Mood");
         setTitle(String.format("Sleep duration for %s mood", selectedMood));
 
-        chart = findViewById(R.id.sleep_chart_mood);
+        chart = findViewById(R.id.chart_sleep_duration_single_mood);
         entryViewModel = new ViewModelProvider(this).get(EntryViewModel.class);
 
         entryList = entryViewModel.findEntriesByMood(Mood.valueOf(selectedMood));

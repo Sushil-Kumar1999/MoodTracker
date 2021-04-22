@@ -12,7 +12,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MoodVariationAppetiteActivity extends AppCompatActivity {
+public class MoodVariationSingleMealActivity extends AppCompatActivity {
 
     private LineChart lineChart;
     private EntryViewModel entryViewModel;
@@ -21,12 +21,12 @@ public class MoodVariationAppetiteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mood_variation_appetite);
+        setContentView(R.layout.activity_mood_variation_single_meal);
 
         String selectedMeal =  getIntent().getStringExtra("Meal");
         setTitle(String.format("Mood variation for %s", selectedMeal));
 
-        lineChart = findViewById(R.id.mood_variation_appetite_chart);
+        lineChart = findViewById(R.id.chart_mood_variation_single_meal);
 
         entryViewModel = new ViewModelProvider(this).get(EntryViewModel.class);
         entryList = getEntryList(selectedMeal);

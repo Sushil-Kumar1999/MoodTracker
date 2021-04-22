@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class SleepStatsAllActivity extends AppCompatActivity {
+public class SleepDurationAllMoodsActivity extends AppCompatActivity {
 
     private LineChart chart;
     private EntryViewModel entryViewModel;
@@ -25,10 +25,10 @@ public class SleepStatsAllActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sleep_stats_all);
-        setTitle("Sleep duration vs time");
+        setContentView(R.layout.activity_sleep_duration_all_moods);
+        setTitle("Sleep duration for all moods");
 
-        chart = findViewById(R.id.sleep_chart);
+        chart = findViewById(R.id.chart_sleep_duration_all_moods);
         entryViewModel = new ViewModelProvider(this).get(EntryViewModel.class);
 
         entryViewModel.getAllEntries().observe(this, entries -> {

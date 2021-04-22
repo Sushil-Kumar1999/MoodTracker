@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 public class StatisticsActivity extends AppCompatActivity {
 
@@ -28,12 +27,12 @@ public class StatisticsActivity extends AppCompatActivity {
         setupMealSpinner();
     }
 
-    public void launchSleepStatsActivity(View view) {
+    public void viewSleepDurationStats(View view) {
         if (selectedMood.equals("All")) {
-            launchSleepStatsAllActivity();
+            launchSleepDurationAllMoodsActivity();
         }
         else {
-            launchSleepStatsMoodActivity();
+            launchSleepDurationSingleMoodActivity();
         }
     }
 
@@ -45,18 +44,18 @@ public class StatisticsActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), MoodVariationActivity.class));
     }
 
-    public void launchMoodVariationAppetiteActivity(View view) {
-        Intent intent = new Intent(getApplicationContext(), MoodVariationAppetiteActivity.class);
+    public void launchMoodVariationSingleMealActivity(View view) {
+        Intent intent = new Intent(getApplicationContext(), MoodVariationSingleMealActivity.class);
         intent.putExtra("Meal", selectedMeal);
         startActivity(intent);
     }
 
-    private void launchSleepStatsAllActivity() {
-        startActivity(new Intent(getApplicationContext(), SleepStatsAllActivity.class));
+    private void launchSleepDurationAllMoodsActivity() {
+        startActivity(new Intent(getApplicationContext(), SleepDurationAllMoodsActivity.class));
     }
 
-    private void launchSleepStatsMoodActivity() {
-        Intent intent = new Intent(getApplicationContext(), SleepStatsMoodActivity.class);
+    private void launchSleepDurationSingleMoodActivity() {
+        Intent intent = new Intent(getApplicationContext(), SleepDurationSingleMoodActivity.class);
         intent.putExtra("Mood", selectedMood);
         startActivity(intent);
     }
