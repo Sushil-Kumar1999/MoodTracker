@@ -2,6 +2,8 @@ package com.example.moodtracker;
 
 import android.graphics.Color;
 
+import com.example.moodtracker.data.Mood;
+
 public class Utilities {
 
     // 24 hrs in milliseconds

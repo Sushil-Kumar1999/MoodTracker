@@ -1,10 +1,9 @@
-package com.example.moodtracker;
+package com.example.moodtracker.data;
 
-import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import java.util.Calendar;
+
 import java.util.Date;
 
 @Entity(tableName = "entry")

@@ -7,9 +7,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.example.moodtracker.DateValueFormatter;
-import com.example.moodtracker.Entry;
+import com.example.moodtracker.data.Entry;
 import com.example.moodtracker.EntryViewModel;
-import com.example.moodtracker.Mood;
+import com.example.moodtracker.data.Mood;
 import com.example.moodtracker.R;
 import com.example.moodtracker.SleepDataMarkerView;
 import com.example.moodtracker.Utilities;

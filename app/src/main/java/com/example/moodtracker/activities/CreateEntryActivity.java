@@ -14,9 +14,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.example.moodtracker.Entry;
+import com.example.moodtracker.data.Entry;
 import com.example.moodtracker.EntryViewModel;
-import com.example.moodtracker.Mood;
+import com.example.moodtracker.data.Mood;
 import com.example.moodtracker.R;
 
 import java.util.Calendar;

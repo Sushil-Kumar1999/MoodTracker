@@ -2,6 +2,8 @@ package com.example.moodtracker;
 
 import androidx.room.TypeConverter;
 
+import com.example.moodtracker.data.Mood;
+
 import java.util.Date;
 
 public class Converters {

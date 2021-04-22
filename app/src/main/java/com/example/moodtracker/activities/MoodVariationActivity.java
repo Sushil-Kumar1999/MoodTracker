@@ -2,15 +2,13 @@ package com.example.moodtracker.activities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+
 import android.os.Build;
 import android.os.Bundle;
 
 import com.example.moodtracker.DateValueFormatter;
-import com.example.moodtracker.Entry;
+import com.example.moodtracker.data.Entry;
 import com.example.moodtracker.EntryViewModel;
 import com.example.moodtracker.MoodFormatter;
 import com.example.moodtracker.R;

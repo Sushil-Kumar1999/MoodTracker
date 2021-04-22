@@ -5,7 +5,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import java.util.Date;
+import com.example.moodtracker.data.Entry;
+import com.example.moodtracker.data.EntryRepository;
+import com.example.moodtracker.data.Mood;
+
 import java.util.List;
 
 public class EntryViewModel extends AndroidViewModel {

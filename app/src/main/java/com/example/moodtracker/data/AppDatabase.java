@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.data;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -10,6 +10,9 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.example.moodtracker.Converters;
+
 import java.util.GregorianCalendar;
 
 @Database(entities = {Entry.class}, version = 2)

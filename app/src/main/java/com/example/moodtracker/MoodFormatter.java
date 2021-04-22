@@ -1,5 +1,6 @@
 package com.example.moodtracker;
 
+import com.example.moodtracker.data.Mood;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 
 public class MoodFormatter extends ValueFormatter {

@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import com.example.moodtracker.DateValueFormatter;
-import com.example.moodtracker.Entry;
+import com.example.moodtracker.data.Entry;
 import com.example.moodtracker.EntryViewModel;
 import com.example.moodtracker.R;
 import com.example.moodtracker.SleepDataMarkerView;

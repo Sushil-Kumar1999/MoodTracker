@@ -6,13 +6,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SimpleItemAnimator;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import com.example.moodtracker.Entry;
+import com.example.moodtracker.data.Entry;
 import com.example.moodtracker.EntryAdapter;
 import com.example.moodtracker.EntryViewModel;
 import com.example.moodtracker.R;
