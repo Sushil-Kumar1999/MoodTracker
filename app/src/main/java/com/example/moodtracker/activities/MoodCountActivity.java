@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -6,6 +6,10 @@ import androidx.lifecycle.ViewModelProvider;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.example.moodtracker.EntryViewModel;
+import com.example.moodtracker.IntegerFormatter;
+import com.example.moodtracker.Mood;
+import com.example.moodtracker.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;

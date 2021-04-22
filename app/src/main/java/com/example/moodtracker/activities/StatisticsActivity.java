@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import com.example.moodtracker.R;
+import com.example.moodtracker.activities.MoodCountActivity;
+import com.example.moodtracker.activities.MoodVariationActivity;
+import com.example.moodtracker.activities.MoodVariationSingleMealActivity;
+import com.example.moodtracker.activities.SleepDurationAllMoodsActivity;
+import com.example.moodtracker.activities.SleepDurationSingleMoodActivity;
 
 public class StatisticsActivity extends AppCompatActivity {
 

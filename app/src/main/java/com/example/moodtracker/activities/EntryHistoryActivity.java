@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,11 @@ import androidx.recyclerview.widget.SimpleItemAnimator;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
+
+import com.example.moodtracker.Entry;
+import com.example.moodtracker.EntryAdapter;
+import com.example.moodtracker.EntryViewModel;
+import com.example.moodtracker.R;
 import com.google.android.material.snackbar.Snackbar;
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 

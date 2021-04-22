@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SleepDurationSingleMoodActivity">
+    tools:context=".activities.SleepDurationSingleMoodActivity">
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart_sleep_duration_single_mood"

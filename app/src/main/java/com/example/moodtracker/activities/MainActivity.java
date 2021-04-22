@@ -1,10 +1,13 @@
-package com.example.moodtracker;
+package com.example.moodtracker.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.moodtracker.R;
+import com.example.moodtracker.activities.DashboardActivity;
 
 public class MainActivity extends AppCompatActivity {
 

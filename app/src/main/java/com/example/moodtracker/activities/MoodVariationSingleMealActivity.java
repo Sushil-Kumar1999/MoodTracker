@@ -1,13 +1,16 @@
-package com.example.moodtracker;
+package com.example.moodtracker.activities;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
+
+import com.example.moodtracker.DateValueFormatter;
+import com.example.moodtracker.Entry;
+import com.example.moodtracker.EntryViewModel;
+import com.example.moodtracker.MoodFormatter;
+import com.example.moodtracker.R;
+import com.example.moodtracker.SleepDataMarkerView;
+import com.example.moodtracker.Utilities;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -15,31 +18,46 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-public class MoodVariationActivity extends AppCompatActivity {
+public class MoodVariationSingleMealActivity extends AppCompatActivity {
 
     private LineChart lineChart;
     private EntryViewModel entryViewModel;
     private List<Entry> entryList;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mood_variation);
-        setTitle("Mood variation");
+        setContentView(R.layout.activity_mood_variation_single_meal);
 
-        lineChart = findViewById(R.id.mood_variation_chart);
+        String selectedMeal =  getIntent().getStringExtra("Meal");
+        setTitle(String.format("Mood variation for %s", selectedMeal));
+
+        lineChart = findViewById(R.id.chart_mood_variation_single_meal);
+
         entryViewModel = new ViewModelProvider(this).get(EntryViewModel.class);
+        entryList = getEntryList(selectedMeal);
+        setChartData();
+    }
 
-        entryViewModel.getAllEntries().observe(this, entries -> {
-            entryList = entries;
-            // sort in ascending order of date
-            entryList.sort(Comparator.comparing(e -> e.getDate().getTime()));
-            setChartData();
-        });
+    private List<Entry> getEntryList(String selectedMeal) {
+        List<Entry> result;
+        switch (selectedMeal) {
+            case "Breakfast" : 
+                result = entryViewModel.findEntriesByBreakfast(true);
+                break;
+            case "Lunch" :
+                result = entryViewModel.findEntriesByLunch(true);
+                break;
+            case "Dinner" :
+                result = entryViewModel.findEntriesByDinner(true);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + selectedMeal);
+        }
+
+        return result;
     }
 
     private void setChartData() {
@@ -54,7 +72,7 @@ public class MoodVariationActivity extends AppCompatActivity {
             chartDataArray.add(chartDataEntry);
         }
 
-        LineDataSet dataSet = new LineDataSet(chartDataArray, "Mood variations");
+        LineDataSet dataSet = new LineDataSet(chartDataArray, "Mood variations for meal");
         dataSet.setColors(ColorTemplate.MATERIAL_COLORS);
         dataSet.setDrawValues(false);
 

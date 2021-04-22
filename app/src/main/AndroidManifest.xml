@@ -10,27 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoodTracker">
         <activity
-            android:name=".MoodVariationSingleMealActivity"
-            android:parentActivityName=".StatisticsActivity" />
+            android:name=".activities.MoodVariationSingleMealActivity"
+            android:parentActivityName=".activities.StatisticsActivity" />
         <activity
-            android:name=".MoodVariationActivity"
-            android:parentActivityName=".StatisticsActivity" />
+            android:name=".activities.MoodVariationActivity"
+            android:parentActivityName=".activities.StatisticsActivity" />
         <activity
-            android:name=".MoodCountActivity"
-            android:parentActivityName=".StatisticsActivity" />
+            android:name=".activities.MoodCountActivity"
+            android:parentActivityName=".activities.StatisticsActivity" />
         <activity
-            android:name=".SleepDurationSingleMoodActivity"
-            android:parentActivityName=".StatisticsActivity" />
+            android:name=".activities.SleepDurationSingleMoodActivity"
+            android:parentActivityName=".activities.StatisticsActivity" />
         <activity
-            android:name=".SleepDurationAllMoodsActivity"
-            android:parentActivityName=".StatisticsActivity" />
+            android:name=".activities.SleepDurationAllMoodsActivity"
+            android:parentActivityName=".activities.StatisticsActivity" />
         <activity
-            android:name=".StatisticsActivity"
-            android:parentActivityName=".DashboardActivity" />
+            android:name=".activities.StatisticsActivity"
+            android:parentActivityName=".activities.DashboardActivity" />
         <activity
-            android:name=".EntryHistoryActivity"
-            android:parentActivityName=".DashboardActivity" />
-        <activity android:name=".MainActivity">
+            android:name=".activities.EntryHistoryActivity"
+            android:parentActivityName=".activities.DashboardActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,18 +38,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DashboardActivity"
-            android:parentActivityName=".MainActivity">
+            android:name=".activities.DashboardActivity"
+            android:parentActivityName=".activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.moodtracker.MainActivity" />
+                android:value="com.example.moodtracker.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".CreateEntryActivity"
-            android:parentActivityName=".DashboardActivity">
+            android:name=".activities.CreateEntryActivity"
+            android:parentActivityName=".activities.DashboardActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.moodtracker.DashboardActivity" />
+                android:value="com.example.moodtracker.activities.DashboardActivity" />
         </activity>
     </application>
 
