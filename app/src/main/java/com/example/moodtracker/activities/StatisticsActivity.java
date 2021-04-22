@@ -33,7 +33,7 @@ public class StatisticsActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), SleepDurationVariationActivity.class));
     }
 
-    public void viewSleepDurationStats(View view) {
+    public void viewSleepDurationMoodStats(View view) {
         if (selectedMood.equals("All")) {
             launchSleepDurationAllMoodsActivity();
         }
@@ -57,7 +57,7 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     private void launchSleepDurationAllMoodsActivity() {
-        startActivity(new Intent(getApplicationContext(), SleepDurationVariationActivity.class));
+        startActivity(new Intent(getApplicationContext(), SleepDurationAllMoodsActivity.class));
     }
 
     private void launchSleepDurationSingleMoodActivity() {

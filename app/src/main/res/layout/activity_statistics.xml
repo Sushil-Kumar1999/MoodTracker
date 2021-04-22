@@ -80,7 +80,7 @@
             android:layout_marginTop="5dp"
             android:layout_below="@+id/tv_stats_sleep_duration"
             android:text="View"
-            android:onClick="viewSleepDurationStats"/>
+            android:onClick="viewSleepDurationMoodStats"/>
 
     </RelativeLayout>
 

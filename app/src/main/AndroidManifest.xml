@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoodTracker">
         <activity
+            android:name=".activities.SleepDurationAllMoodsActivity"
+            android:parentActivityName=".activities.StatisticsActivity" />
+        <activity
             android:name=".activities.MoodVariationSingleMealActivity"
             android:parentActivityName=".activities.StatisticsActivity" />
         <activity
