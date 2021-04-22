@@ -12,8 +12,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.example.moodtracker.data.Entry;
-import com.example.moodtracker.EntryAdapter;
-import com.example.moodtracker.EntryViewModel;
+import com.example.moodtracker.adapters.EntryAdapter;
+import com.example.moodtracker.viewmodels.EntryViewModel;
 import com.example.moodtracker.R;
 import com.google.android.material.snackbar.Snackbar;
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;

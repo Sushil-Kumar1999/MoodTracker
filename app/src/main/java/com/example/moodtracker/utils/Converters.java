@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.utils;
 
 import androidx.room.TypeConverter;
 

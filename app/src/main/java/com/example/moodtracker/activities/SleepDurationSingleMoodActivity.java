@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModelProvider;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import com.example.moodtracker.DateValueFormatter;
+import com.example.moodtracker.formatters.DateValueFormatter;
 import com.example.moodtracker.data.Entry;
-import com.example.moodtracker.EntryViewModel;
+import com.example.moodtracker.viewmodels.EntryViewModel;
 import com.example.moodtracker.data.Mood;
 import com.example.moodtracker.R;
 import com.example.moodtracker.SleepDataMarkerView;
-import com.example.moodtracker.Utilities;
+import com.example.moodtracker.utils.Utilities;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.LineData;

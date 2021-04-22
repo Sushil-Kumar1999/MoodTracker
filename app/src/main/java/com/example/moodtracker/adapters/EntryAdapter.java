@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.moodtracker.R;
 import com.example.moodtracker.data.Entry;
 import com.example.moodtracker.data.Mood;
+import com.example.moodtracker.utils.Utilities;
 
 import java.text.DateFormat;
 import java.util.Date;

@@ -1,7 +1,8 @@
-package com.example.moodtracker;
+package com.example.moodtracker.utils;
 
 import android.graphics.Color;
 
+import com.example.moodtracker.R;
 import com.example.moodtracker.data.Mood;
 
 public class Utilities {

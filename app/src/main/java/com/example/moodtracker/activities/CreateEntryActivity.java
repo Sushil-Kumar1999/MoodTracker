@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.moodtracker.data.Entry;
-import com.example.moodtracker.EntryViewModel;
+import com.example.moodtracker.viewmodels.EntryViewModel;
 import com.example.moodtracker.data.Mood;
 import com.example.moodtracker.R;
 

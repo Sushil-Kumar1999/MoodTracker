@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.formatters;
 
 import com.example.moodtracker.data.Mood;
 import com.github.mikephil.charting.formatter.ValueFormatter;

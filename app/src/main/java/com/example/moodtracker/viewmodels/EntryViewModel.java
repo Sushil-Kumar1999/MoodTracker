@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.viewmodels;
 
 import android.app.Application;
 import androidx.annotation.NonNull;

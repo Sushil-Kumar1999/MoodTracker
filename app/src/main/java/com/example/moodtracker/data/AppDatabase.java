@@ -11,7 +11,7 @@ import androidx.room.TypeConverters;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.moodtracker.Converters;
+import com.example.moodtracker.utils.Converters;
 
 import java.util.GregorianCalendar;
 

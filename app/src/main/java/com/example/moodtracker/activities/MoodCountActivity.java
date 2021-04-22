@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModelProvider;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import com.example.moodtracker.EntryViewModel;
-import com.example.moodtracker.IntegerFormatter;
+import com.example.moodtracker.viewmodels.EntryViewModel;
+import com.example.moodtracker.formatters.IntegerFormatter;
 import com.example.moodtracker.data.Mood;
 import com.example.moodtracker.R;
 import com.github.mikephil.charting.animation.Easing;

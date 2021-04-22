@@ -1,4 +1,4 @@
-package com.example.moodtracker;
+package com.example.moodtracker.formatters;
 
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import java.text.SimpleDateFormat;
