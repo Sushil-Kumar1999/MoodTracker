@@ -42,7 +42,7 @@ public class EntryDataMarkerView extends MarkerView {
 
         String formattedDate = new SimpleDateFormat("dd MMMM YYYY").format(entryData.getDate());
         textViewDate.setText(String.format("Date: %s", formattedDate));
-        
+
         textViewSleepDuration.setText(String.format("Sleep duration: %s hours", entryData.getSleepDuration()));
         textViewMood.setText(String.format("Mood: %s", entryData.getMood().toString()));
         imageViewMood.setImageResource(Utilities.getEmojiResourceId(entryData.getMood()));

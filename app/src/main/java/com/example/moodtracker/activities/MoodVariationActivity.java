@@ -69,8 +69,8 @@ public class MoodVariationActivity extends AppCompatActivity {
 
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setSpaceMin(10 * Utilities.ONE_DAY_IN_MILLISECONDS);
-        xAxis.setSpaceMax(10 * Utilities.ONE_DAY_IN_MILLISECONDS);
+        xAxis.setSpaceMin(5 * Utilities.ONE_DAY_IN_MILLISECONDS);
+        xAxis.setSpaceMax(5 * Utilities.ONE_DAY_IN_MILLISECONDS);
         xAxis.setValueFormatter(new DateValueFormatter());
         xAxis.setGranularityEnabled(true);
         xAxis.setGranularity(Utilities.ONE_DAY_IN_MILLISECONDS);
